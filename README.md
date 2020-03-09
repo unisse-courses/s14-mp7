@@ -2,4 +2,4 @@
 
 ## Michaela Ragasa, Alex Ramos, Angelo Remudaro
 
-* Remudaro, Angelo
+* Remudaro, Angelo* Ragasa, Michaela
