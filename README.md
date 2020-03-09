@@ -1,1 +1,5 @@
-# s14-mp7
+# VILLA RESERVATION SYSTEM
+
+## Michaela Ragasa, Alex Ramos, Angelo Remudaro
+
+* Remudaro, Angelo
