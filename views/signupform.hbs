@@ -1,0 +1,101 @@
+<div class="bodyMain">
+<div class="divcontainer">
+        <div class="d-flex justify-content-center h-100">
+        <div class="card signup">
+            <div class="card-header">
+                <h3>Sign Up</h3>
+            </div>
+        <div class="card-body">
+        <form action="/signup" method="POST">
+         {{> messages}}
+            <div class="form-row">  
+                <label for="fname">Name</label>
+                <div class="input-group form-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+            </div>
+            </div>
+
+            <div class="form-row">
+                <label for="username">Username</label>
+                <div class="input-group form-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-at"></i></span>
+                    </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="inputGroupPrepend">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email</label>
+                <div class="input-group form-group">
+                <input type="email" class="form-control" id="email" name="email" placeholder="email@domain.com">
+                </div>
+            </div>
+            <p id="emailWarning" class="warningText"></p> 
+
+            <div class="form-row">
+                    <label for="password">Password</label>
+                    <div class="input-group form-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+            </div>
+
+            <div class="form-row">
+                    <label for="password">Confirm Password</label>
+                    <div class="input-group form-group">
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
+                    </div>
+            </div>
+            <p id="passWarning" class="warningText"></p> 
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="boy">
+                <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="girl">
+                <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>User Type</label>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="userType" id="false" value="false">
+                <label class="form-check-label" for="false">Customer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="userType" id="true" value="true">
+                <label class="form-check-label" for="true">Admin</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="agree" id="invalidCheck" name="invalidCheck">
+                <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+                </label>
+            </div>
+            </div> 
+            <button class="btn float-right login_btn" id="signup">Sign up</button>
+        </form>
+        <!--
+        {{#if hasErrors}}
+            {{#each messages}}
+                <p class="warningText">{{this}}</p>
+            {{/each}}
+        {{/if}} -->
+        <p id="warning" class="warningText"></p> 
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+                <a href="/">Go back to Home page</a>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+</div>

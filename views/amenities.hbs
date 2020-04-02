@@ -1,0 +1,16 @@
+<div class="bodyClass">
+       <h1>{{cap this.title}}</h1> 
+        
+        {{#each amenities}}
+        
+          <br>
+          <img class="homepic" src="{{this.imagePath}}">
+          <br>
+          <p>
+              {{strong this.name}}<br>
+              {{this.description}}
+          </p>
+      
+        {{/each}}
+        <br><br>
+</div>

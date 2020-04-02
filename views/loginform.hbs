@@ -1,0 +1,51 @@
+<body class="bodyMain">
+<div class="divcontainer">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card login">
+            <div class="card-header">
+                <h3>Login</h3>
+            </div>
+        <div class="card-body">
+        <form action="/login" method="POST">
+         {{> messages}}
+            <div class="form-row">
+                <label for="username">Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="inputGroupPrepend">
+                </div>
+            </div>
+
+                <div class="form-row">
+                    <label for="password">Password</label>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                <button class="btn float-right login_btn" id="login">Login</button>
+                </div>
+        </form>
+
+        <p id="warning" class="warningText"></p> 
+        </div>
+        
+        <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+                Don't have an account?<a href="signup">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="/">Go back to Home page</a>
+            </div>
+        </div>
+
+</div>
+</div>
+</div>
+</body>

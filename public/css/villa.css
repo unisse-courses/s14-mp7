@@ -1,0 +1,403 @@
+/* pictures */
+#logo{
+  float: left;
+  width: 100px;
+  height: 50px;
+}
+
+#mainLogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  height: 250px;
+}
+
+.homepic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 750px;
+  height: 450px;
+}
+
+.typepic{
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 500px;
+height: 350px;
+}
+
+.profilepic{
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
+/* Villa Types */
+.evenDiv{
+background-color: rgb(235, 235, 235);
+}
+
+.paddingDiv{
+margin-left: 25px;
+margin-right: 25px;
+}
+
+.villatype{
+list-style: circle;
+}
+
+.navli{
+float: right;
+}
+
+/* body */
+.bodyClass {
+  font-family: 'Libre Franklin', sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+p{  
+  text-align: justify;
+  margin-left: 100px;
+  margin-right: 100px; 
+}
+
+h1{
+  text-align: center;
+}
+
+table, th, td{
+  text-align: center;
+}
+
+/* villa types */
+.customRow {
+  display: flex;
+}
+.customCol {
+  flex: 50%;
+  padding: 10px;
+
+}
+
+
+/* footer */
+footer {
+  font-size: small;
+  background-color: rgb(66, 64, 64);
+  margin-top: 10px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.568);
+  
+}
+
+.centertext{
+  text-align: center;
+}
+
+.footernav, .footerlist {
+  list-style-type: none;
+  display: inline;
+  padding: 15px;
+}
+
+.footerlink{
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+/*image slideshows*/
+ol.carousel-indicators {
+position: absolute;
+bottom: 5px;
+margin: 0;
+left: 0;
+right: 0;
+width: auto;
+}
+
+ol.carousel-indicators li,
+ol.carousel-indicators li.active {
+ width: .5rem;
+ height: .5rem;
+ margin: 0;
+ border-radius: 50%;
+ border: 0;
+ background: transparent;
+}
+
+ol.carousel-indicators li {
+background: rgba(255,255,255,0.39);
+margin-left: .5rem;
+margin-right: .5rem;
+}
+
+ol.carousel-indicators li.active {
+background: rgba(255, 255, 255, 0.877);
+}
+
+.carousel {
+width: 50%;
+margin: auto;
+}
+
+
+/* home page for villages cards*/
+#containerCard{
+  padding: 10px;
+  margin: 50px;
+}
+
+.borderPink{
+  border: 2px solid #53959c;
+}
+
+.pCards{  
+  text-align: justify;
+  margin: auto;
+}
+
+/* buttons */
+.loginNav:hover{
+  color: rgb(229, 226, 226) !important;
+  background-color: rgb(0, 0, 0) !important;  
+}
+
+.loginNav{
+  background-color: #53959c !important;
+ }
+
+
+.manageBtn:hover{
+  color: rgb(229, 226, 226) !important;
+  background-color: rgb(253, 60, 60) !important;  
+}
+
+.manageBtn{
+  background-color: #53959c !important;
+  color: rgb(66, 64, 64);
+ } 
+
+.centerReserveBtn{
+  text-align: center;
+}
+ /* REMOVED CONTACT US */
+ /* for contact form 
+ input[type=text], select, textarea {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #53959c;
+  border-radius: 4px; 
+  box-sizing: border-box;
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) * /
+}
+
+.star{
+  font-size: 40px; 
+  cursor:pointer; 
+}
+.checked{
+  color:orange;
+} */
+
+/* for reserving */
+  .reserveForm{
+    background-color: #363636;
+    border-left: 2px solid #53959c;
+    border-right: 2px solid #53959c;
+    border-top: 2px solid #53959c;
+    border-bottom: 2px solid #53959c;
+    margin-bottom: 0;
+  }
+  .cardCustom{
+    width: 500px;
+  }
+  .card-title{
+    color: #53959c;
+  }
+
+  .formBG{
+    background-color:#363636 !important; 
+    border: 1px solid #53959c !important;
+    color: rgb(229, 226, 226) !important;
+  }
+
+  .reserveCard{
+    background-color:#53959c;
+    border-left: 2px solid #53959c;
+    border-right: 2px solid #53959c;
+    border-top: 2px solid #53959c;
+    border-bottom: 2px solid #53959c;
+    text-align: center;
+  }
+
+  .reserveLink{
+    text-decoration: none !important;
+    text-align: center;
+    border: none;
+  }
+
+  .reserveText{
+    color: rgb(229, 226, 226);
+    text-align: center;
+  }
+
+  .reserveCard:hover{
+  background-color: #363636 !important;
+  }
+
+
+/* REMOVED REVIEWS 
+  for review in home page * /
+.reviews{
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.reviewbg{
+  background-color:#53959c;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+}
+
+    /* Three column layout * /
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+.right {
+  text-align: right;
+}
+
+    /* Clear floats after the columns * /
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/ * The bar container * / 
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+  /* Individual bars * /
+.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 20%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 15%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 3%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 4%; height: 18px; background-color: #f44336;}
+
+    /* Responsive layout* /
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+.row{
+  padding-top:30px;
+}
+
+*/
+
+/* login and signup */
+.bodyMain, html{
+  background-image: url("../img/bgpic2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: 'Libre Franklin', sans-serif;
+  color: white;
+  }
+  
+.divcontainer{
+  height: 100%;
+  align-content: center;
+  }
+  
+  
+.login{
+  height: 390px; 
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  }
+  
+.signup{
+  height: 820px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  }
+  
+  
+.input-group-prepend span{
+  width: 50px;
+  background-color: #53959c;
+  color: black;
+  border:0 !important;
+  }
+  
+input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+  }
+  
+.remember{
+  color: white;
+  }
+  
+.remember input{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+  }
+  
+.login_btn{
+  color: black !important;
+  background-color: #53959c !important;
+  width: 100px !important;
+  }
+  
+.login_btn:hover{
+  color: black;
+  background-color: white;
+  }
+  
+.links{
+  color: white;
+  }
+  
+.links a{
+margin-left: 4px;
+  }
+
+.warningText{
+  text-align: left;
+  margin:0;
+  color: red;
+}

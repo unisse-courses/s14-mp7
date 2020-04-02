@@ -1,0 +1,40 @@
+<div class="bodyClass">
+          <img id="mainLogo" src="{{ this.logo }}" />
+          <br>
+          <img class="homepic" src="{{ this.homepic }}" />
+          <br>
+          
+          <p>Villa La Isla is designed to fuse different cultures in terms of achitecture and cuisine. We offer three themes of villages, drawing inspiration from the islands of Mykonos, Tuscany and of course, Siargao. Each Village includes four Villas to choose from depending on the capacity and amenities. Discover the wonders of the world right here at the surfer's paradise of the Philippines.</p>
+          <br>
+          <hr>
+      <div id="containerCard">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-6">
+              <div class="section-heading text-center">
+                  <h2>Choose a Village</h2>
+                  <p>Our Villages are patterned after the islands of Mykonos, Tuscany and Siargao itself. Choose from our villas that best suit your needs.</p>
+              </div>
+          </div>
+        </div>
+
+      <div class="card-deck">
+      {{#each villages}}
+        <div class="card" style=" border: 1px solid #53959c;">
+              <img class="card-img-top" src="{{this.imagePath}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{cap this.theme}}</h5>
+            <p class="card-text pCards">{{ this.desc }}</p>
+          </div>
+          <div class="card-footer">
+            <a href="/{{this.theme}}" class="btn float-right loginNav">Learn More</a>
+          </div>
+        </div>
+      {{/each}}
+
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+</div>

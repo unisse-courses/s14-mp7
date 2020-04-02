@@ -1,0 +1,44 @@
+<div class="container">
+<div class="bodyClass">
+
+   <h1>{{cap this.title}}</h1>
+    <br>
+    <h5>Account: @{{this.username}}</h5>
+    <br>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">Village</th>
+            <th scope="col">Villa</th>
+            <th scope="col">Check-in</th>
+            <th scope="col">Check-out</th>
+            <th scope="col">Adult/s</th>
+            <th scope="col">Child/ren</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+            <th scope="col">Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each reservation}}
+            <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td>{{cap this.villa.villageTheme}}</td>
+            <td>{{cap this.villa.villatype}}</td>
+            <td>{{this.checkIn}}</td>
+            <td>{{this.checkOut}}</td>
+            <td>{{this.adultNum}}</td>
+            <td>{{this.childrenNum}}</td>
+            <td>Php {{this.total}}</td>
+            <td>{{cap this.status}}</td>
+            <td><button class="btn-sm manageBtn" aria-disabled="true">Edit</button></td>
+            </tr> 
+            {{/each}}       
+        </tbody>
+    </table>
+    <br>
+    <br>
+    
+
+</div>
+</div>
