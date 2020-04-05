@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
+const connectDB = require('./models/connection');
 const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
@@ -18,27 +19,27 @@ const app = express();
 const port = 3000;
 
 app.engine( 'hbs', exphbs({
-  extname: 'hbs', 
-  defaultView: 'main', 
-  layoutsDir: path.join(__dirname, '/views/layouts'), 
-  partialsDir: path.join(__dirname, '/views/partials'), 
-  
+  extname: 'hbs',
+  defaultView: 'main',
+  layoutsDir: path.join(__dirname, '/views/layouts'),
+  partialsDir: path.join(__dirname, '/views/partials'),
+
   helpers: {
     strong: function(text) {
       var x = `<strong>${text}</strong>`;
       return new handlebars.SafeString(x);
-    }, 
+    },
     cap: function(text) { return text.toUpperCase(); },
     inc: function(value) { return parseInt(value) + 1;},
-  } 
+  }
 
 }));
 
 
 app.set('view engine', 'hbs');
 
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 

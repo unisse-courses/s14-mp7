@@ -3,13 +3,13 @@ const accountModel = require('../models/account');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 
-  
+
 exports.signupUser = (req, res) => {
 
       const errors = validationResult(req);
-  
+
       if (errors.isEmpty()) {
-        
+
         accountModel.getUser({username: req.body.username}, (err, result) => {
           if (result) {
             console.log(result);
@@ -19,7 +19,7 @@ exports.signupUser = (req, res) => {
           } else {
             // Match not found
            const saltRounds = 10;
-  
+
           bcrypt.hash(req.body.password, saltRounds, (err, hashed) => {
             const newAccount = {
                 _id: new mongoose.Types.ObjectId(),
@@ -31,7 +31,7 @@ exports.signupUser = (req, res) => {
                 imagePath: `img/${req.body.gender}.png`
             };
             console.log(newAccount);
-            
+
             accountModel.create(newAccount, (err, user) => {
               if (err) {
                 req.flash('error_msg', 'Could not create user. Please try again.');
@@ -41,30 +41,30 @@ exports.signupUser = (req, res) => {
                 req.flash('success_msg', 'You are now registered! Login below.');
                 res.redirect('/login');
               }
-            }); 
+            });
           });
-  
+
           }
         });
       } else {
         const messages = errors.array().map((item) => item.msg);
-      
+
         req.flash('error_msg', messages.join(' '));
         res.redirect('/signup');
       }
-  
+
   };
 
 
   exports.loginUser = (req, res) => {
     const errors = validationResult(req);
-  
+
     if (errors.isEmpty()) {
       const {
         username,
         password
       } = req.body;
-  
+
 
       accountModel.getUser({username: username}, (err, Account) => {
         if (err) {
@@ -76,10 +76,10 @@ exports.signupUser = (req, res) => {
           // Successful query
           if (Account) {
             console.log(Account);
-            console.log("Successfully found user!");  
-            
+            console.log("Successfully found user!");
+
             bcrypt.compare(password, Account.password, (err, result) => {
-              
+
             // Passwords match
               if (result) {
                 req.session.Account = Account._id;
@@ -87,9 +87,9 @@ exports.signupUser = (req, res) => {
                 req.session.email = Account.email;
                 req.session.username = Account.username;
                 req.session.imagePath = Account.imagePath;
-  
+
                 console.log(req.session);
-  
+
                 res.redirect('/profile');
               } else {
                 // passwords don't match
@@ -97,7 +97,7 @@ exports.signupUser = (req, res) => {
                 res.redirect('/login');
               }
             });
-  
+
           } else {
             // No user found
             req.flash('error_msg', 'No registered user with that username. Please signup.');
@@ -105,16 +105,16 @@ exports.signupUser = (req, res) => {
           }
         }
       });
-  
+
     } else {
       const messages = errors.array().map((item) => item.msg);
-  
+
       req.flash('error_msg', messages.join(' '));
       res.redirect('/login');
     }
-  
+
   };
-  
+
   exports.logoutUser = (req, res) => {
     if (req.session) {
       req.session.destroy(() => {
