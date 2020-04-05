@@ -4,14 +4,14 @@ const Account = require('../models/account');
 const Reservation = require('../models/reservation');
 const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
-const databaseURL = 'mongodb://localhost:27017/villadb';
+const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false };
 
 mongoose.connect(databaseURL, options, function (err) {
     if (err) throw err;
-     
+
     console.log('Successfully connected');
 
     // seeding amenities
@@ -78,7 +78,7 @@ mongoose.connect(databaseURL, options, function (err) {
         desc: 'Having an island life vibe, the atmosphere is lively and full of life definitely showing that it is more fun in the Philippines.',
         imagePath: 'img/siargao5.jpg'
     });
-    
+
     var mykonosVillage = new Village ({
         _id: new mongoose.Types.ObjectId(),
         theme: 'mykonos',
@@ -100,7 +100,7 @@ mongoose.connect(databaseURL, options, function (err) {
         username: "admin",
         email: "michlopez@gmail.com",
         password: "admin",
-        isAdmin: "true", 
+        isAdmin: "true",
         imagePath: 'img/girl.png'
     });
     var michaelAccount = new Account ({
@@ -110,7 +110,7 @@ mongoose.connect(databaseURL, options, function (err) {
             email: "michcruz@gmail.com",
             password: "12345",
             isAdmin: "false",
-            imagePath: 'img/boy.png' 
+            imagePath: 'img/boy.png'
         });
     var angelAccount = new Account ({
             _id: new mongoose.Types.ObjectId(),
@@ -118,7 +118,7 @@ mongoose.connect(databaseURL, options, function (err) {
             username: "angeltan",
             email: "angeltan@gmail.com",
             password: "angeltan123",
-            isAdmin: "false", 
+            isAdmin: "false",
             imagePath: 'img/girl.png'
         });
     var joshuaAccount = new Account ({
@@ -145,7 +145,7 @@ mongoose.connect(databaseURL, options, function (err) {
             username: "beagomez",
             email: "beagomez@gmail.com",
             password: "gomezbea1992",
-            isAdmin: "false", 
+            isAdmin: "false",
             imagePath: 'img/girl.png'
         });
     var kathrineAccount = new Account ({
@@ -154,17 +154,17 @@ mongoose.connect(databaseURL, options, function (err) {
             username: "kathgo",
             email: "kathgo@gmail.com",
             password: "kathyyy",
-            isAdmin: "false", 
+            isAdmin: "false",
             imagePath: 'img/girl.png'
         });
 
     michelleAccount.save(function(err) {
             if (err) throw err;
-         
+
             console.log('Michelle Account (admin) successfully saved.');
 
     });
-    
+
     //seeding villas in siargao village
     siargaoVillage.save(function(err) {
         if (err) throw err;
@@ -186,7 +186,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         siargaoVip.save(function(err) {
             if (err) throw err;
-         
+
             console.log('Siargao VIP successfully saved.');
 
         //seeding reservations in accounts
@@ -197,8 +197,8 @@ mongoose.connect(databaseURL, options, function (err) {
         var beaReservation = new Reservation ({
                     _id: new mongoose.Types.ObjectId(),
                     account: beaAccount._id,
-                    checkIn: "2020-04-23", 
-                    checkOut: "2020-04-26", 
+                    checkIn: "2020-04-23",
+                    checkOut: "2020-04-26",
                     adultNum: 2,
                     childrenNum: 0,
                     villa: siargaoVip._id,
@@ -208,7 +208,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
             beaReservation.save(function(err) {
                 if (err) throw err;
-            
+
                 console.log('Bea Reservation successfully saved.');
             });
         });
@@ -223,7 +223,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/deluxe.jpg',
             shortDesc: 'Siargao Village represents what Siargao is all about. Having an island life vibe, the atmosphere is lively and full of life. Includes one double sized bed and two single beds in two seperate rooms that can accodomate 4 people.',
             inclusions: ['1 Double and 2 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath',
             'Kitchen', 'Lounge Area'],
             villageTheme: 'siargao',
             village: siargaoVillage._id
@@ -231,7 +231,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         siargaoDeluxe.save(function(err) {
             if (err) throw err;
-         
+
             console.log('Siargao Deluxe successfully saved.');
 
         });
@@ -245,7 +245,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/suite.jpg',
             shortDesc: 'Siargao Village represents what Siargao is all about. Having an island life vibe, the atmosphere is lively and full of life. Includes one double sized bed and four single beds. This suite has three bedrooms with three shower rooms and it can accomodate up to 6 people.',
             inclusions: ['1 Double and 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms',
             'Kitchen', 'Lounge Area', 'Minibar'],
             villageTheme: 'siargao',
             village: siargaoVillage._id
@@ -253,7 +253,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         siargaoSuite.save(function(err) {
             if (err) throw err;
-         
+
             console.log('Siargao Suite successfully saved.');
         });
 
@@ -266,7 +266,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/premier.jpg',
             shortDesc: 'Siargao Village represents what Siargao is all about. Having an island life vibe, the atmosphere is lively and full of life. Includes one king sized bed, one double sized bed and four single beds split among four spacious rooms. This Premier villa can accomodate up to 8 people and has 4 shower rooms.',
             inclusions: ['1 King, 1 Double, 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath',
             'Kitchen', 'Lounge Area', 'Minibar', 'Private garden'],
             villageTheme: 'siargao',
             village: siargaoVillage._id
@@ -274,32 +274,32 @@ mongoose.connect(databaseURL, options, function (err) {
 
         siargaoPremier.save(function(err) {
             if (err) throw err;
-         
+
             console.log('Siargao Premier successfully saved.');
 
             isabelleAccount.save(function(err) {
                 if (err) throw err;
                 console.log('isabelle Account successfully saved.');
-        
+
             var isabelleReservation = new Reservation ({
                         _id: new mongoose.Types.ObjectId(),
-                        account: isabelleAccount._id, 
-                        checkIn: "2020-05-12", 
-                        checkOut: "2020-05-14", 
+                        account: isabelleAccount._id,
+                        checkIn: "2020-05-12",
+                        checkOut: "2020-05-14",
                         adultNum: 5,
                         childrenNum: 3,
                         villa: siargaoPremier._id, //variable
                         total: 30800, //booked 2 nights siargao premier,
                         status: "ACTIVE"
             });
-        
+
                 isabelleReservation.save(function(err) {
                     if (err) throw err;
-                
+
                     console.log('isabelle Reservation successfully saved.');
                 });
             });
-        }); 
+        });
 
 
     });
@@ -325,29 +325,29 @@ mongoose.connect(databaseURL, options, function (err) {
 
         toscanaVip.save(function(err) {
             if (err) throw err;
-         
+
             console.log('toscana VIP successfully saved.');
 
             //seeding reservations in accounts
             kathrineAccount.save(function(err) {
                 if (err) throw err;
                 console.log('Kath Account successfully saved.');
-        
+
             var kathrineReservation = new Reservation ({
                         _id: new mongoose.Types.ObjectId(),
-                        account: kathrineAccount._id, 
-                        checkIn: "2020-04-23", 
+                        account: kathrineAccount._id,
+                        checkIn: "2020-04-23",
                         checkOut: "2020-04-28",
                         adultNum: 2,
                         childrenNum: 0,
                         villa: toscanaVip._id,
-                        total: 32000, //booked 5 nights toscana vip, 
+                        total: 32000, //booked 5 nights toscana vip,
                         status: "ACTIVE"
                 });
-        
+
                 kathrineReservation.save(function(err) {
                     if (err) throw err;
-                
+
                     console.log('Kath Reservation successfully saved.');
                 });
             });
@@ -362,7 +362,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/toscanaDeluxe.jpg',
             shortDesc: 'Toscana villas have a rustic, yet elegant design exbiting intricate patterns having contrasting tones. Includes one double sized bed and two single beds that can accodomate 4 people.',
             inclusions: ['1 Double and 2 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath',
             'Kitchen', 'Lounge Area'],
             villageTheme: 'toscana',
             village: toscanaVillage._id
@@ -370,7 +370,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         toscanaDeluxe.save(function(err) {
             if (err) throw err;
-         
+
             console.log('toscana Deluxe successfully saved.');
         });
 
@@ -383,7 +383,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/toscanaSuite.jpg',
             shortDesc: 'Toscana villas have a rustic, yet elegant design exbiting intricate patterns having contrasting tones. Includes a kitchen, a lounge area and a minibar. This suite has three bedrooms with three shower rooms and it can accomodate up to 6 people.',
             inclusions: ['1 Double and 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms',
             'Kitchen', 'Lounge Area', 'Minibar'],
             villageTheme: 'toscana',
             village: toscanaVillage._id
@@ -391,28 +391,28 @@ mongoose.connect(databaseURL, options, function (err) {
 
         toscanaSuite.save(function(err) {
             if (err) throw err;
-         
+
             console.log('toscana Suite successfully saved.');
 
             joshuaAccount.save(function(err) {
                 if (err) throw err;
                 console.log('joshua Account successfully saved.');
-        
+
                var joshuaReservation = new Reservation ({
                         _id: new mongoose.Types.ObjectId(),
-                        account: joshuaAccount._id, 
-                        checkIn: "2020-05-01", 
-                        checkOut: "2020-05-04",  
+                        account: joshuaAccount._id,
+                        checkIn: "2020-05-01",
+                        checkOut: "2020-05-04",
                         adultNum: 5,
                         childrenNum: 1,
                         villa: toscanaSuite._id,
                         total: 49200, //booked 3 nights toscana suite,
                         status: "ACTIVE"
                 });
-        
+
                 joshuaReservation.save(function(err) {
                     if (err) throw err;
-                 
+
                     console.log('joshua Reservation successfully saved.');
                });
             });
@@ -427,7 +427,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/toscanaPremier.jpg',
             shortDesc: 'Toscana villas have a rustic, yet elegant design exbiting intricate patterns having contrasting tones. Includes four spacious rooms with a private garden. This Premier villa can accomodate up to 8 people.',
             inclusions: ['1 King, 1 Double, 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath',
             'Kitchen', 'Lounge Area', 'Minibar', 'Private garden'],
             villageTheme: 'toscana',
             village: toscanaVillage._id
@@ -435,7 +435,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         toscanaPremier.save(function(err) {
             if (err) throw err;
-         
+
             console.log('toscana Premier successfully saved.');
         });
 
@@ -464,7 +464,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
         mykonosVip.save(function(err) {
             if (err) throw err;
-         
+
             console.log('mykonos VIP successfully saved.');
         });
 
@@ -477,7 +477,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/mykonosDeluxe.jpeg',
             shortDesc: 'Mykonos Village has a neat and clean arhitecture drawing inspiration from the worldwide famous island in Greece. Includes one double sized bed and two single beds that can accodomate 4 people. There is also a kitchen and a lounge area',
             inclusions: ['1 Double and 2 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '1 Shower Room and 1 Shower over bath',
             'Kitchen', 'Lounge Area'],
             villageTheme: 'mykonos',
             village: mykonosVillage._id
@@ -485,28 +485,28 @@ mongoose.connect(databaseURL, options, function (err) {
 
         mykonosDeluxe.save(function(err) {
             if (err) throw err;
-         
+
             console.log('mykonos Deluxe successfully saved.');
 
             angelAccount.save(function(err) {
                 if (err) throw err;
                 console.log('angel Account successfully saved.');
-        
+
                var angelReservation = new Reservation ({
                         _id: new mongoose.Types.ObjectId(),
-                        account: angelAccount._id, 
+                        account: angelAccount._id,
                         checkIn: "2020-05-05",
-                        checkOut: "2020-05-07", 
+                        checkOut: "2020-05-07",
                         adultNum: 4,
                         childrenNum: 0,
                         villa:  mykonosDeluxe._id,
                         total: 20800, //booked 2 nights mykonos deluxe,
                         status: "ACTIVE"
                 });
-        
+
                 angelReservation.save(function(err) {
                     if (err) throw err;
-                 
+
                     console.log('angel Reservation successfully saved.');
                  });
             });
@@ -521,7 +521,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/mykonosSuite.jpg',
             shortDesc: 'Mykonos Village has a neat and clean arhitecture drawing inspiration from the worldwide famous island in Greece. This suite includes a minibar and has three bedrooms with three shower rooms and it can accomodate up to 6 people.',
             inclusions: ['1 Double and 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms',
             'Kitchen', 'Lounge Area', 'Minibar'],
             villageTheme: 'mykonos',
             village: mykonosVillage._id
@@ -529,29 +529,29 @@ mongoose.connect(databaseURL, options, function (err) {
 
         mykonosSuite.save(function(err) {
             if (err) throw err;
-         
+
             console.log('mykonos Suite successfully saved.');
 
             //seeding reservations in accounts
             michaelAccount.save(function(err) {
                 if (err) throw err;
                 console.log('michael Account successfully saved.');
-        
+
             var michaelReservation = new Reservation ({
                         _id: new mongoose.Types.ObjectId(),
                         account: michaelAccount._id,
-                        checkIn: "2020-04-24", 
-                        checkOut: "2020-04-29", 
+                        checkIn: "2020-04-24",
+                        checkOut: "2020-04-29",
                         adultNum: 2,
                         childrenNum: 0,
                         villa: mykonosSuite._id,
                         total: 67000, //booked 5 nights mykonos suite,
                         status: "ACTIVE"
                     });
-        
+
                     michaelReservation.save(function(err) {
                     if (err) throw err;
-                
+
                     console.log('michael Reservation successfully saved.');
                     });
             });
@@ -566,7 +566,7 @@ mongoose.connect(databaseURL, options, function (err) {
             imagePath: 'img/mykonos2.jpg',
             shortDesc: 'Mykonos Village has a neat and clean arhitecture drawing inspiration from the worldwide famous island in Greece. Includes four spacious rooms, three Shower Rooms, one Shower over bath and a private garden. This Premier villa can accomodate up to 8 people.',
             inclusions: ['1 King, 1 Double, 4 Single Beds', 'Air conditioned', 'Cable/Satellite TV', 'WiFi', 'Netflix',
-            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath', 
+            'Linen, Towels and Bathrobes', 'Toiletries', '3 Shower Rooms 1 Shower over bath',
             'Kitchen', 'Lounge Area', 'Minibar', 'Private garden'],
             villageTheme: 'mykonos',
             village: mykonosVillage._id
@@ -574,12 +574,12 @@ mongoose.connect(databaseURL, options, function (err) {
 
         mykonosPremier.save(function(err) {
             if (err) throw err;
-         
+
             console.log('mykonos Premier successfully saved.');
         });
 
-        
+
     });
-    
+
 
 });

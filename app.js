@@ -60,19 +60,15 @@ app.use((req, res, next) => {
 });
 
 /*
-
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 */
 
-
-
 app.use('/', villaRouter);
 app.use('/', employeeRouter);
 app.use('/', guestRouter);
 app.use('/', indexRouter);
-
 
 
 app.listen(port, function() {
