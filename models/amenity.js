@@ -10,7 +10,7 @@ const amenitySchema = new mongoose.Schema({
 const amenityModel = mongoose.model('Amenity', amenitySchema);
 
 
-exports.getAll = function(sort, next){
+amenityModel.getAll = function(sort, next){
 
   amenityModel.find({}).sort(sort).exec(function(err, result) {
     if (err) throw err;
@@ -25,6 +25,6 @@ exports.getAll = function(sort, next){
 
 }
 
-
+module.exports = mongoose.model('Amenity', amenitySchema);
 
 

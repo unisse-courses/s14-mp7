@@ -13,7 +13,7 @@ const accountSchema = new mongoose.Schema({
 
 const accountModel = mongoose.model('Account', accountSchema);
 
-exports.create = function(obj, next) {
+accountModel.create = function(obj, next) {
     const Account = new accountModel(obj);
   
     Account.save(function(err, Account) {
@@ -21,7 +21,7 @@ exports.create = function(obj, next) {
     });
   };
 
-exports.getUser = function(query, next){
+  accountModel.getUser = function(query, next){
 
     accountModel.findOne(query).exec(function(err, Account) {
         if (err) throw err;
@@ -31,3 +31,5 @@ exports.getUser = function(query, next){
   
 }
 
+
+module.exports = mongoose.model('Account', accountSchema);

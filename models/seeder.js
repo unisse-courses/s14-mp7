@@ -4,7 +4,8 @@ const Account = require('../models/account');
 const Reservation = require('../models/reservation');
 const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
-const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
+//const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
+const databaseURL = 'mongodb://localhost:27017/s14mp7db';
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false };
@@ -82,7 +83,7 @@ mongoose.connect(databaseURL, options, function (err) {
     var mykonosVillage = new Village ({
         _id: new mongoose.Types.ObjectId(),
         theme: 'mykonos',
-        desc: 'From the vivid nightlife to whitewashed structures, the village captures well-know island og Greece right here in Surigao Del Norte.',
+        desc: 'From the vivid nightlife to whitewashed structures, the village captures well-know island of Greece right here in Surigao Del Norte.',
         imagePath: 'img/mykonos2.jpg'
     });
 
@@ -203,7 +204,7 @@ mongoose.connect(databaseURL, options, function (err) {
                     childrenNum: 0,
                     villa: siargaoVip._id,
                     total: 16200, //booked 3 nights siargao vip,
-                    status: "ACTIVE"
+                    status: "Active"
                 });
 
             beaReservation.save(function(err) {
@@ -290,7 +291,7 @@ mongoose.connect(databaseURL, options, function (err) {
                         childrenNum: 3,
                         villa: siargaoPremier._id, //variable
                         total: 30800, //booked 2 nights siargao premier,
-                        status: "ACTIVE"
+                        status: "Active"
             });
 
                 isabelleReservation.save(function(err) {
@@ -342,7 +343,7 @@ mongoose.connect(databaseURL, options, function (err) {
                         childrenNum: 0,
                         villa: toscanaVip._id,
                         total: 32000, //booked 5 nights toscana vip,
-                        status: "ACTIVE"
+                        status: "Active"
                 });
 
                 kathrineReservation.save(function(err) {
@@ -407,7 +408,7 @@ mongoose.connect(databaseURL, options, function (err) {
                         childrenNum: 1,
                         villa: toscanaSuite._id,
                         total: 49200, //booked 3 nights toscana suite,
-                        status: "ACTIVE"
+                        status: "Active"
                 });
 
                 joshuaReservation.save(function(err) {
@@ -501,7 +502,7 @@ mongoose.connect(databaseURL, options, function (err) {
                         childrenNum: 0,
                         villa:  mykonosDeluxe._id,
                         total: 20800, //booked 2 nights mykonos deluxe,
-                        status: "ACTIVE"
+                        status: "Active"
                 });
 
                 angelReservation.save(function(err) {
@@ -546,7 +547,7 @@ mongoose.connect(databaseURL, options, function (err) {
                         childrenNum: 0,
                         villa: mykonosSuite._id,
                         total: 67000, //booked 5 nights mykonos suite,
-                        status: "ACTIVE"
+                        status: "Active"
                     });
 
                     michaelReservation.save(function(err) {

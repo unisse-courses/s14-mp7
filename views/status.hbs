@@ -3,11 +3,13 @@
 
    <h1>{{cap this.title}}</h1>
     <br>
-    <h5>Account: @{{this.username}}</h5>
+    <!-- <h5>Account: @{{this.username}}</h5> -->
+    <h5>Account: @beagomez</h5>
     <br>
     <table class="table table-sm table-striped table-bordered">
         <thead>
             <tr>
+            <th scope="col">#</th>
             <th scope="col">Village</th>
             <th scope="col">Villa</th>
             <th scope="col">Check-in</th>
@@ -31,7 +33,7 @@
             <td>{{this.childrenNum}}</td>
             <td>Php {{this.total}}</td>
             <td>{{cap this.status}}</td>
-            <td><button class="btn-sm manageBtn" aria-disabled="true">Edit</button></td>
+            <td><button class="btn-sm manageBtn" aria-disabled="true">Cancel</button></td>
             </tr> 
             {{/each}}       
         </tbody>

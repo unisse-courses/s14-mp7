@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 
 /*
 const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDb";
@@ -7,7 +7,7 @@ const options = { useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false };
 
-mongoose.connect(databaseURL, options);*/
+mongoose.connect(databaseURL, options);* /
 
 /*
 const URI = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDb";
@@ -23,7 +23,7 @@ const connectDB  = async () =>
   console.log("db connected...");
 }
 
-module.exports =connectDB; */
+module.exports =connectDB; * /
 // ^^^ DOESN'T WORK
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://AdminUser:12345>@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
@@ -34,5 +34,17 @@ MongoClient.connect(uri,{useNewUrlParser:true}, function(err,client){
 });
 
 //require("../models/seeder"); 
+
+module.exports = mongoose;
+*/
+
+const mongoose = require('mongoose');
+const databaseURL = 'mongodb://localhost:27017/s14mp7db';
+
+const options = { useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false };
+
+mongoose.connect(databaseURL, options);
 
 module.exports = mongoose;

@@ -16,14 +16,14 @@ const reservationSchema = new mongoose.Schema({
     total: {type: Number, required: true},
     status: {type: String, 
             required: true, 
-            enum: ['ACTIVE', 'CANCELLED', 'COMPLETED'], 
-            default: 'ACTIVE'}
+            enum: ['Active', 'Cancelled', 'Completed'], 
+            default: 'Active'}
 });
 
 
 const reservationModel = mongoose.model('Reservation', reservationSchema);
 
-exports.getAll = function(sort, next){
+reservationModel.getAll = function(sort, next){
     reservationModel.find({}).populate('account').populate('villa').exec(function(err, result) {
         var reservationObjects = [];
 
@@ -35,7 +35,7 @@ exports.getAll = function(sort, next){
     }); 
 }  
 
-exports.getSpecific = function(query, next){
+reservationModel.getSpecific = function(query, next){
     reservationModel.find(query).populate('account').populate('villa').exec(function(err, result) {
         var reservationObjects = [];
 
@@ -46,3 +46,5 @@ exports.getSpecific = function(query, next){
         next(reservationObjects);
     }); 
 } 
+
+module.exports = mongoose.model('Reservation', reservationSchema);

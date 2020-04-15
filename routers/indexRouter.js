@@ -5,8 +5,6 @@ const router = express.Router();
 const amenityController = require('../controllers/amenityController');
 const villageController = require('../controllers/villageController');
 
-//seeding to db
-//require("../models/seeder"); 
 
 
 // Home route

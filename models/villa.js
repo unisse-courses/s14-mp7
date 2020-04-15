@@ -25,7 +25,7 @@ const villaSchema = new mongoose.Schema({
 
 const villaModel = mongoose.model('Villa', villaSchema);
 
-exports.getSpecific = function(query, sort, next){
+villaModel.getSpecific = function(query, sort, next){
   
   villaModel.find(query).sort(sort).exec(function(err, result) {
     
@@ -34,8 +34,9 @@ exports.getSpecific = function(query, sort, next){
     result.forEach(function(doc) {
       villaObjects.push(doc.toObject());
     });
-    console.log(villaObjects);
+    //console.log(villaObjects);
     next(villaObjects);
   });
 }
 
+module.exports = mongoose.model('Villa', villaSchema);

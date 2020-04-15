@@ -7,41 +7,41 @@ const { isLoggedOut, isLoggedIn } = require('../middlewares/checkAuth');
 
 
 // Login Route
-router.get('/login', isLoggedOut, (req, res) => {
+router.get('/login',  (req, res) => {
   res.render('loginform', {layout: 'main2'})
 });
 
 
 // Login POST
-router.post('/login', isLoggedOut, loginValidation, accountController.loginUser);
+router.post('/login', loginValidation, accountController.loginUser);
 
 // Logout Route
-router.get('/logout', isLoggedIn, accountController.logoutUser);
+router.get('/logout', accountController.logoutUser);
 
 //Sign up Route
-router.get('/signup', isLoggedOut, (req, res) => {
+router.get('/signup',  (req, res) => {
   res.render('signupform', {layout: 'main2'});
 });
 
 //Sign up POST
-router.post('/signup', isLoggedOut, signupValidation, accountController.signupUser);
+router.post('/signup', signupValidation, accountController.signupUser);
  
 
 // Profile route
-router.get('/profile', isLoggedIn, (req, res) => {
+router.get('/profile', (req, res) => {
   
   res.render('profile', {
-    title: 'profile',
-    name: req.session.name,
+    title: 'profile'
+   /* ,name: req.session.name,
     username: req.session.username,
     email: req.session.email,
-    imagePath: req.session.imagePath
+    imagePath: req.session.imagePath */
   });
 });
 
   
 // Reservation status route
-router.get('/status', isLoggedIn, reservationController.getStatus);
+router.get('/status', reservationController.getStatus);
   
   
 module.exports = router;

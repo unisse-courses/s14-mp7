@@ -14,6 +14,7 @@ const villaRouter = require('./routers/villaRouter');
 const employeeRouter = require('./routers/employeeRouter');
 const guestRouter = require('./routers/guestRouter');
 
+require('./models/seeder');
 
 const app = express();
 const port = 3000;
@@ -59,11 +60,6 @@ app.use((req, res, next) => {
   next();
 });
 
-/*
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-*/
 
 app.use('/', villaRouter);
 app.use('/', employeeRouter);

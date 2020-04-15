@@ -11,7 +11,7 @@ const villageSchema = new mongoose.Schema({
 const villageModel = mongoose.model('Village', villageSchema);
 
 
-exports.getAll = function(next){
+villageModel.getAll = function(next){
   
   villageModel.find({}).exec(function(err, result) {
     var villageObjects = [];
@@ -24,3 +24,4 @@ exports.getAll = function(next){
   });
 }
 
+module.exports = mongoose.model('Village', villageSchema);
