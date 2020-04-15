@@ -6,7 +6,7 @@ const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
 //const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
-const databaseURL = 'mongodb://localhost:27017/s14mp7db';
+const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false };
@@ -14,8 +14,13 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options, function (err) {
     if (err) throw err;
 
-    // drop database if it exists
+    // drop existing database;
     db.dropDatabase();
+    console.log("Database dropped...")
+})
+
+mongoose.connect(databaseURL, options, function (err) {
+    if (err) throw err;
 
     console.log('Successfully connected');
 
