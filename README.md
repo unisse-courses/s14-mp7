@@ -17,3 +17,5 @@ This is the code of group 7 of CCAPDEV S14. This web application is a Villa Rese
     * Navigate to `http://localhost:3000/` in the browser to view the app.
     * Expected screen should home page of Villa La Isla
     * All pages can be accessed through the navigation bar except from the page used to reserve a villa which can be accessed when 'Reserve A Villa' button is clicked in any of the village pages (Siargao, Toscana, Mykonos).
+    * Collections are already in MongoDB Atlas.
+    * In the meantime, the profile and status page shows only a sample account so that there is already something shown without having to login/sign up. 
