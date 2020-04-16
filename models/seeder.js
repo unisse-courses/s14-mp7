@@ -1,3 +1,4 @@
+// This is for the initial seeding in MongoDB Atlas which is already done
 const Village = require('../models/village');
 const Villa = require('../models/villa');
 const Account = require('../models/account');
@@ -5,7 +6,6 @@ const Reservation = require('../models/reservation');
 const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
-//const databaseURL = "mongodb+srv://AdminUser:12345@s14-mp7-66gtx.mongodb.net/test?retryWrites=true&w=majority/villageDB";
 const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,

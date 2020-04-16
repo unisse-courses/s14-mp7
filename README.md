@@ -13,8 +13,7 @@ This is the code of group 7 of CCAPDEV S14. This web application is a Villa Rese
 
 ## Local Setup
 1. Navigate to the directory: `cd s14-mp7`
-2. Install the dependencies: `npm install`
-3. Run the server: `node app.js`
+2. Run the server: `node app.js`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
     * Expected screen should home page of Villa La Isla
-
+    * All pages can be accessed through the navigation bar except from the page used to reserve a villa which can be accessed when 'Reserve A Villa' button is clicked in any of the village pages (Siargao, Toscana, Mykonos).
