@@ -11,9 +11,12 @@ exports.getAllReservations = function(req, res) {
 };
 
 exports.getStatus = function(req, res) {
-    var query = {
+    /*var query = {
         name: req.session.username
-      };
+      }; */
+      var query = {
+        account: '5e9867e25a56c971fc117c7f'
+      }; 
 
     reservationModel.getSpecific(query, function(reservations) {
   

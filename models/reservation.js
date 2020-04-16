@@ -42,7 +42,7 @@ reservationModel.getSpecific = function(query, next){
         result.forEach(function(doc) {
         reservationObjects.push(doc.toObject());
         });
-     
+        //console.log(reservationObjects);
         next(reservationObjects);
     }); 
 } 
