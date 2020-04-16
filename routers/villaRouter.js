@@ -32,7 +32,7 @@ router.get('/villa', villaController.getAllVillas);
 router.get('/availabilities', function(req, res) {
       res.render('availabilities', {
         title: 'availabilities'
-    });  
+    });
 });
 
 router.post('/availabilities', villaController.getAvailabilities);

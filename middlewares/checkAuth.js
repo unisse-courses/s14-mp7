@@ -5,7 +5,7 @@ exports.isLoggedIn = (req, res, next) => {
       res.redirect('/login');
     }
   };
-  
+
   exports.isLoggedOut = (req, res, next) => {
     if (req.session.Account) {
       res.redirect('/');

@@ -25,11 +25,11 @@ router.get('/signup',  (req, res) => {
 
 //Sign up POST
 router.post('/signup', signupValidation, accountController.signupUser);
- 
+
 
 // Profile route
 router.get('/profile', (req, res) => {
-  
+
   res.render('profile', {
     title: 'profile'
    /* ,name: req.session.name,
@@ -39,9 +39,9 @@ router.get('/profile', (req, res) => {
   });
 });
 
-  
+
 // Reservation status route
 router.get('/status', reservationController.getStatus);
-  
-  
+
+
 module.exports = router;
