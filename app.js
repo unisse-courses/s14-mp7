@@ -14,7 +14,7 @@ const villaRouter = require('./routers/villaRouter');
 const employeeRouter = require('./routers/employeeRouter');
 const guestRouter = require('./routers/guestRouter');
 
-require('./models/seeder');
+//require('./models/seeder');
 
 const app = express();
 const port = 3000;
