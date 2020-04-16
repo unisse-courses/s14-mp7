@@ -16,7 +16,7 @@ mongoose.connect(databaseURL, options, function (err) {
 
     // drop existing database;
     db.dropDatabase();
-    console.log("Database dropped...")
+    console.log("Database dropped...");
 })
 
 mongoose.connect(databaseURL, options, function (err) {
