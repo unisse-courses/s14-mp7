@@ -7,7 +7,7 @@
                     <div class="card cardCustom">
                       <div class="card-body reserveForm">
                         <h5 class="card-title">Check in</h5>
-                        <input class="form-control card-text formBG" type="date" id="checkIn" placeholder="Check In" max = '2020-05-31'>
+                        <input class="form-control card-text formBG" type="date" id="checkIn" placeholder="Check In" max = '2020-12-31'>
                       </div>
                     </div>
                     <div class="card">
@@ -60,15 +60,15 @@
                      <button class="card-body reserveCard" type="submit" id="reserveBtn" onClick="return getValues()">
                           <h5 class="card-title reserveText">See Available Villas</h5>
                       </button>
-                   
+
                   </div>
                  <input type="hidden" id="id" name="id" value="siargao">
                 </form>
-                
+
               </div>
                <p id="warning" class="warningText"></p>
             </div>
-           
+
         <br><br><br>
         {{#each villa}}
         <div class="container py-3">
@@ -94,7 +94,7 @@
                 </div>
               </div>
             </div>
-          {{/each}} 
+          {{/each}}
 
 </div>
 
@@ -103,16 +103,16 @@
     //to set minimum date to today
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth()+1; 
+    var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
     if(dd<10)
     {
       dd='0'+dd
-    } 
+    }
     if(mm<10)
     {
             mm='0'+mm
-    } 
+    }
 
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("checkIn").setAttribute("min", today);
@@ -136,8 +136,8 @@
     function getValues() {
 
       var valid = true;
-      valid = checkField($("#checkIn"), valid); 
-      valid = checkField($("#checkOut"), valid); 
+      valid = checkField($("#checkIn"), valid);
+      valid = checkField($("#checkOut"), valid);
 
       // Validating number of adults and children, total should not be greater than 8
       total = +$("#adultNum").val() + +$("#childNum").val();
@@ -154,7 +154,7 @@
         valid = false;
         $("#warning").text("Please enter valid dates");
       }
-      
+
       return valid;
 
     }
@@ -174,7 +174,7 @@
 
         if(clicked == "mykonosVIP")
         {
-          compute(totalNights,5400); 
+          compute(totalNights,5400);
         }
 
         if(clicked == "mykonosDeluxe")
@@ -186,13 +186,13 @@
         {
           compute(totalNights,11400);
         }
-        
+
         if(clicked == "mykonosPremier")
         {
           compute(totalNights,15400);
         }
     }
-    else 
+    else
       alert("User Input Invalid")
 
     }
@@ -204,4 +204,3 @@
     }
     */
 </script>
-
