@@ -87,6 +87,7 @@ exports.signupUser = (req, res) => {
                 req.session.email = Account.email;
                 req.session.username = Account.username;
                 req.session.imagePath = Account.imagePath;
+                req.session.isAdmin = Account.isAdmin;
 
                 console.log(req.session);
 

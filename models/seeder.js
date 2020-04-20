@@ -6,7 +6,9 @@ const Reservation = require('../models/reservation');
 const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
-const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
+const bcrypt = require('bcrypt');
+//const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
+const databaseURL = 'mongodb://localhost:27017/villalaisladb';
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false };
@@ -20,6 +22,9 @@ mongoose.connect(databaseURL, options, function (err) {
 })
 
 mongoose.connect(databaseURL, options, function (err) {
+    // for hashing of password in accounts
+    const saltRounds = 10;
+
     if (err) throw err;
 
     console.log('Successfully connected');
@@ -103,76 +108,23 @@ mongoose.connect(databaseURL, options, function (err) {
         imagePath: 'img/tuscany5.jpeg'
     });
 
-    //seeding accounts
-    var michelleAccount = new Account ({
-        _id: new mongoose.Types.ObjectId(),
-        name: "Michelle Lopez",
-        username: "admin",
-        email: "michlopez@gmail.com",
-        password: "admin",
-        isAdmin: "true",
-        imagePath: 'img/girl.png'
-    });
-    var michaelAccount = new Account ({
+    // saving michelle
+    bcrypt.hash("admin", saltRounds, (err, hashed) => {
+        var michelleAccount = new Account ({
             _id: new mongoose.Types.ObjectId(),
-            name: "Michael Cruz",
-            username: "michcruz",
-            email: "michcruz@gmail.com",
-            password: "12345",
-            isAdmin: "false",
-            imagePath: 'img/boy.png'
-        });
-    var angelAccount = new Account ({
-            _id: new mongoose.Types.ObjectId(),
-            name: "Angelica Tan",
-            username: "angeltan",
-            email: "angeltan@gmail.com",
-            password: "angeltan123",
-            isAdmin: "false",
+            name: "Michelle Lopez",
+            username: "admin",
+            email: "michlopez@gmail.com",
+            password: hashed,
+            isAdmin: "true",
             imagePath: 'img/girl.png'
         });
-    var joshuaAccount = new Account ({
-            _id: new mongoose.Types.ObjectId(),
-            name: "Joshua Dela Cruz",
-            username: "joshdelacruz",
-            email: "joshdelacruz@gmail.com",
-            password: "54321",
-            isAdmin: "false",
-            imagePath: 'img/boy.png'
-        });
-    var isabelleAccount = new Account ({
-            _id: new mongoose.Types.ObjectId(),
-            name: "Isabelle Santos",
-            username: "sabsantos",
-            email: "sabsantos@gmail.com",
-            password: "pups4life",
-            isAdmin: "false",
-            imagePath: 'img/girl.png'
-        });
-    var beaAccount = new Account ({
-            _id: new mongoose.Types.ObjectId(),
-            name: "Bea Gomez",
-            username: "beagomez",
-            email: "beagomez@gmail.com",
-            password: "gomezbea1992",
-            isAdmin: "false",
-            imagePath: 'img/girl.png'
-        });
-    var kathrineAccount = new Account ({
-            _id: new mongoose.Types.ObjectId(),
-            name: "Kathrine Go",
-            username: "kathgo",
-            email: "kathgo@gmail.com",
-            password: "kathyyy",
-            isAdmin: "false",
-            imagePath: 'img/girl.png'
-        });
-
-    michelleAccount.save(function(err) {
+        michelleAccount.save(function(err) {
             if (err) throw err;
 
             console.log('Michelle Account (admin) successfully saved.');
 
+        });
     });
 
     //seeding villas in siargao village
@@ -199,29 +151,43 @@ mongoose.connect(databaseURL, options, function (err) {
 
             console.log('Siargao VIP successfully saved.');
 
-        //seeding reservations in accounts
-        beaAccount.save(function(err) {
-            if (err) throw err;
-            console.log('Bea Account successfully saved.');
-
-        var beaReservation = new Reservation ({
+            // saving bea
+            bcrypt.hash("gomezbea1992", saltRounds, (err, hashed) => {
+                var beaAccount = new Account ({
                     _id: new mongoose.Types.ObjectId(),
-                    account: beaAccount._id,
-                    checkIn: "2020-04-23",
-                    checkOut: "2020-04-26",
-                    adultNum: 2,
-                    childrenNum: 0,
-                    villa: siargaoVip._id,
-                    total: 16200, //booked 3 nights siargao vip,
-                    status: "Active"
+                    name: "Bea Gomez",
+                    username: "beagomez",
+                    email: "beagomez@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/girl.png'
                 });
 
-            beaReservation.save(function(err) {
-                if (err) throw err;
+                beaAccount.save(function(err) {
+                    if (err) throw err;
+                    console.log('Bea Account successfully saved.');
+                    
+                    //seeding reservations in accounts
+                    var beaReservation = new Reservation ({
+                                _id: new mongoose.Types.ObjectId(),
+                                account: beaAccount._id,
+                                checkIn: "2020-04-23",
+                                checkOut: "2020-04-26",
+                                adultNum: 2,
+                                childrenNum: 0,
+                                villa: siargaoVip._id,
+                                total: 16200, //booked 3 nights siargao vip,
+                                status: "Active"
+                            });
 
-                console.log('Bea Reservation successfully saved.');
+                    beaReservation.save(function(err) {
+                        if (err) throw err;
+
+                        console.log('Bea Reservation successfully saved.');
+                    });
+                });
             });
-        });
+
     });
 
         var siargaoDeluxe = new Villa ({
@@ -286,29 +252,44 @@ mongoose.connect(databaseURL, options, function (err) {
             if (err) throw err;
 
             console.log('Siargao Premier successfully saved.');
+            
+            // saving isabelle
+            bcrypt.hash("pups4life", saltRounds, (err, hashed) => {
+                var isabelleAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Isabelle Santos",
+                    username: "sabsantos",
+                    email: "sabsantos@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/girl.png'
+                });
 
-            isabelleAccount.save(function(err) {
-                if (err) throw err;
-                console.log('isabelle Account successfully saved.');
-
-            var isabelleReservation = new Reservation ({
-                        _id: new mongoose.Types.ObjectId(),
-                        account: isabelleAccount._id,
-                        checkIn: "2020-05-12",
-                        checkOut: "2020-05-14",
-                        adultNum: 5,
-                        childrenNum: 3,
-                        villa: siargaoPremier._id, //variable
-                        total: 30800, //booked 2 nights siargao premier,
-                        status: "Active"
-            });
-
-                isabelleReservation.save(function(err) {
+                isabelleAccount.save(function(err) {
                     if (err) throw err;
-
-                    console.log('isabelle Reservation successfully saved.');
+                    console.log('isabelle Account successfully saved.');
+                    
+                    //seeding reservations in account
+                    var isabelleReservation = new Reservation ({
+                                _id: new mongoose.Types.ObjectId(),
+                                account: isabelleAccount._id,
+                                checkIn: "2020-05-12",
+                                checkOut: "2020-05-14",
+                                adultNum: 5,
+                                childrenNum: 3,
+                                villa: siargaoPremier._id, //variable
+                                total: 30800, //booked 2 nights siargao premier,
+                                status: "Active"
+                    });
+    
+                    isabelleReservation.save(function(err) {
+                        if (err) throw err;
+    
+                        console.log('isabelle Reservation successfully saved.');
+                    });
                 });
             });
+
         });
 
 
@@ -338,29 +319,43 @@ mongoose.connect(databaseURL, options, function (err) {
 
             console.log('toscana VIP successfully saved.');
 
-            //seeding reservations in accounts
-            kathrineAccount.save(function(err) {
-                if (err) throw err;
-                console.log('Kath Account successfully saved.');
-
-            var kathrineReservation = new Reservation ({
-                        _id: new mongoose.Types.ObjectId(),
-                        account: kathrineAccount._id,
-                        checkIn: "2020-04-23",
-                        checkOut: "2020-04-28",
-                        adultNum: 2,
-                        childrenNum: 0,
-                        villa: toscanaVip._id,
-                        total: 32000, //booked 5 nights toscana vip,
-                        status: "Active"
+            // saving katherine
+            bcrypt.hash("kathyyy", saltRounds, (err, hashed) => {
+                var kathrineAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Kathrine Go",
+                    username: "kathgo",
+                    email: "kathgo@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/girl.png'
                 });
-
-                kathrineReservation.save(function(err) {
+  
+                kathrineAccount.save(function(err) {
                     if (err) throw err;
+                    console.log('Kath Account successfully saved.');
 
-                    console.log('Kath Reservation successfully saved.');
+                    //seeding reservations in account
+                    var kathrineReservation = new Reservation ({
+                                _id: new mongoose.Types.ObjectId(),
+                                account: kathrineAccount._id,
+                                checkIn: "2020-04-23",
+                                checkOut: "2020-04-28",
+                                adultNum: 2,
+                                childrenNum: 0,
+                                villa: toscanaVip._id,
+                                total: 32000, //booked 5 nights toscana vip,
+                                status: "Active"
+                        });
+
+                    kathrineReservation.save(function(err) {
+                        if (err) throw err;
+
+                        console.log('Kath Reservation successfully saved.');
+                    });
                 });
             });
+
         });
 
         var toscanaDeluxe = new Villa ({
@@ -382,6 +377,45 @@ mongoose.connect(databaseURL, options, function (err) {
             if (err) throw err;
 
             console.log('toscana Deluxe successfully saved.');
+
+            // saving juana
+            bcrypt.hash("guest", saltRounds, (err, hashed) => {
+                var juanaAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Juana Dela Cruz",
+                    username: "guest",
+                    email: "juanadc@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/girl.png'
+                });
+
+                //seeding reservations in account
+                juanaAccount.save(function(err) {
+                    if (err) throw err;
+
+                    console.log('Juana Account (guest) successfully saved.');
+
+                    //seeding reservations in account
+                   var juanaReservation = new Reservation ({
+                    _id: new mongoose.Types.ObjectId(),
+                    account: juanaAccount._id,
+                    checkIn: "2020-04-18",
+                    checkOut: "2020-04-20",
+                    adultNum: 2,
+                    childrenNum: 2,
+                    villa: toscanaDeluxe._id,
+                    total: 18800, //booked 3 nights toscana suite,
+                    status: "Active"
+                    });
+
+                    juanaReservation.save(function(err) {
+                        if (err) throw err;
+
+                        console.log('Juana Reservation successfully saved.');
+                    });
+                });
+            });
         });
 
         var toscanaSuite = new Villa ({
@@ -403,29 +437,44 @@ mongoose.connect(databaseURL, options, function (err) {
             if (err) throw err;
 
             console.log('toscana Suite successfully saved.');
-
-            joshuaAccount.save(function(err) {
-                if (err) throw err;
-                console.log('joshua Account successfully saved.');
-
-               var joshuaReservation = new Reservation ({
-                        _id: new mongoose.Types.ObjectId(),
-                        account: joshuaAccount._id,
-                        checkIn: "2020-05-01",
-                        checkOut: "2020-05-04",
-                        adultNum: 5,
-                        childrenNum: 1,
-                        villa: toscanaSuite._id,
-                        total: 49200, //booked 3 nights toscana suite,
-                        status: "Active"
+                    
+            // saving joshua
+            bcrypt.hash("654321", saltRounds, (err, hashed) => {
+                var joshuaAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Joshua Dela Cruz",
+                    username: "joshdelacruz",
+                    email: "joshdelacruz@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/boy.png'
                 });
 
-                joshuaReservation.save(function(err) {
+                joshuaAccount.save(function(err) {
                     if (err) throw err;
-
-                    console.log('joshua Reservation successfully saved.');
-               });
+                    console.log('joshua Account successfully saved.');
+                    
+                    //seeding reservations in account
+                   var joshuaReservation = new Reservation ({
+                            _id: new mongoose.Types.ObjectId(),
+                            account: joshuaAccount._id,
+                            checkIn: "2020-05-01",
+                            checkOut: "2020-05-04",
+                            adultNum: 5,
+                            childrenNum: 1,
+                            villa: toscanaSuite._id,
+                            total: 49200, //booked 3 nights toscana suite,
+                            status: "Active"
+                    });
+    
+                    joshuaReservation.save(function(err) {
+                        if (err) throw err;
+    
+                        console.log('joshua Reservation successfully saved.');
+                   });
+                });
             });
+
         });
 
         var toscanaPremier = new Villa ({
@@ -498,28 +547,43 @@ mongoose.connect(databaseURL, options, function (err) {
 
             console.log('mykonos Deluxe successfully saved.');
 
-            angelAccount.save(function(err) {
-                if (err) throw err;
-                console.log('angel Account successfully saved.');
-
-               var angelReservation = new Reservation ({
-                        _id: new mongoose.Types.ObjectId(),
-                        account: angelAccount._id,
-                        checkIn: "2020-05-05",
-                        checkOut: "2020-05-07",
-                        adultNum: 4,
-                        childrenNum: 0,
-                        villa:  mykonosDeluxe._id,
-                        total: 20800, //booked 2 nights mykonos deluxe,
-                        status: "Active"
+             // saving angel
+            bcrypt.hash("angeltan123", saltRounds, (err, hashed) => {
+                var angelAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Angelica Tan",
+                    username: "angeltan",
+                    email: "angeltan@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/girl.png'
                 });
 
-                angelReservation.save(function(err) {
+                angelAccount.save(function(err) {
                     if (err) throw err;
-
-                    console.log('angel Reservation successfully saved.');
-                 });
+                    console.log('angel Account successfully saved.');
+                    
+                    // seeding reservations in account
+                   var angelReservation = new Reservation ({
+                            _id: new mongoose.Types.ObjectId(),
+                            account: angelAccount._id,
+                            checkIn: "2020-05-05",
+                            checkOut: "2020-05-07",
+                            adultNum: 4,
+                            childrenNum: 0,
+                            villa:  mykonosDeluxe._id,
+                            total: 20800, //booked 2 nights mykonos deluxe,
+                            status: "Active"
+                    });
+    
+                    angelReservation.save(function(err) {
+                        if (err) throw err;
+    
+                        console.log('angel Reservation successfully saved.');
+                     });
+                });
             });
+
         });
 
         var mykonosSuite = new Villa ({
@@ -542,29 +606,43 @@ mongoose.connect(databaseURL, options, function (err) {
 
             console.log('mykonos Suite successfully saved.');
 
-            //seeding reservations in accounts
-            michaelAccount.save(function(err) {
-                if (err) throw err;
-                console.log('michael Account successfully saved.');
+            // saving michael
+            bcrypt.hash("password", saltRounds, (err, hashed) => {
+                var michaelAccount = new Account ({
+                    _id: new mongoose.Types.ObjectId(),
+                    name: "Michael Cruz",
+                    username: "michcruz",
+                    email: "michcruz@gmail.com",
+                    password: hashed,
+                    isAdmin: "false",
+                    imagePath: 'img/boy.png'
+                });
 
-            var michaelReservation = new Reservation ({
-                        _id: new mongoose.Types.ObjectId(),
-                        account: michaelAccount._id,
-                        checkIn: "2020-04-24",
-                        checkOut: "2020-04-29",
-                        adultNum: 2,
-                        childrenNum: 0,
-                        villa: mykonosSuite._id,
-                        total: 67000, //booked 5 nights mykonos suite,
-                        status: "Active"
-                    });
-
-                    michaelReservation.save(function(err) {
+                //seeding reservations in account
+                michaelAccount.save(function(err) {
                     if (err) throw err;
+                    console.log('michael Account successfully saved.');
 
-                    console.log('michael Reservation successfully saved.');
-                    });
+                    var michaelReservation = new Reservation ({
+                                _id: new mongoose.Types.ObjectId(),
+                                account: michaelAccount._id,
+                                checkIn: "2020-04-24",
+                                checkOut: "2020-04-29",
+                                adultNum: 2,
+                                childrenNum: 0,
+                                villa: mykonosSuite._id,
+                                total: 67000, //booked 5 nights mykonos suite,
+                                status: "Active"
+                        });
+
+                        michaelReservation.save(function(err) {
+                        if (err) throw err;
+
+                        console.log('michael Reservation successfully saved.');
+                        });
+                });
             });
+
         });
 
         var mykonosPremier = new Villa ({

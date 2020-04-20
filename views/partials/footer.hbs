@@ -32,7 +32,9 @@
             <li class="footerlist"><a class="footerlink" href="/mykonos">MYKONOS VILLAGE</a></li>
             <li class="footerlist"><a class="footerlink" href="/toscana">TOSCANA VILLAGE</a></li>
             <li class="footerlist"><a class="footerlink" href="/villa">VILLAS</a></li>
-            <li class="footerlist"><a class="footerlink" href="/profile">PROFILE</a></li>
+            {{#if user}} 
+                <li class="footerlist"><a class="footerlink" href="/profile">PROFILE</a></li>
+            {{/if}}
         </ul>
         <hr color="white">
         © 2020 Villa La Isla. All Rights Reserved</div>

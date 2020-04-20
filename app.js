@@ -33,6 +33,8 @@ app.engine( 'hbs', exphbs({
     },
     cap: function(text) { return text.toUpperCase(); },
     inc: function(value) { return parseInt(value) + 1;},
+    comma: function(value) {
+      return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"); }
   }
 
 }));
@@ -58,6 +60,13 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
+  if(req.session.Account){
+    res.locals.user = req.session.Account;
+    if(req.session.isAdmin)
+      res.locals.isAdmin = req.session.isAdmin;  
+    else if(!(req.session.isAdmin))
+      res.locals.isGuest = true; 
+  } 
   next();
 });
 

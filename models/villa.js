@@ -13,13 +13,7 @@ const villaSchema = new mongoose.Schema({
     village: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Village'
-    },
-    reservations: [
-      {
-          type: mongoose.Schema.Types.ObjectId, 
-          ref: 'Reservation'
-      }
-    ]
+    }
 });
 
 
@@ -29,13 +23,13 @@ villaModel.getSpecific = function(query, sort, next){
   
   villaModel.find(query).sort(sort).exec(function(err, result) {
     
-    var villaObjects = [];
+       var villaObjects = [];
 
-    result.forEach(function(doc) {
-      villaObjects.push(doc.toObject());
-    });
-    //console.log(villaObjects);
-    next(villaObjects);
+        result.forEach(function(doc) {
+          villaObjects.push(doc.toObject());
+        }); 
+    //console.log(villaObjects); 
+    next(err, villaObjects);
   });
 }
 

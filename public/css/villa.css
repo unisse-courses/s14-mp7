@@ -168,6 +168,7 @@ margin: auto;
 }
 
 .loginNav{
+  color: rgb(229, 226, 226) !important;
   background-color: #53959c !important;
  }
 
@@ -185,24 +186,6 @@ margin: auto;
 .centerReserveBtn{
   text-align: center;
 }
- /* REMOVED CONTACT US */
- /* for contact form 
- input[type=text], select, textarea {
-  width: 100%; 
-  padding: 10px;
-  border: 1px solid #53959c;
-  border-radius: 4px; 
-  box-sizing: border-box;
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) * /
-}
-
-.star{
-  font-size: 40px; 
-  cursor:pointer; 
-}
-.checked{
-  color:orange;
-} */
 
 /* for reserving */
   .reserveForm{
@@ -213,9 +196,15 @@ margin: auto;
     border-bottom: 2px solid #53959c;
     margin-bottom: 0;
   }
+  
   .cardCustom{
     width: 300px;
   }
+
+  .cardCustom2{
+    width: 100px;
+  }
+
   .card-title{
     color: #53959c;
   }
@@ -250,77 +239,6 @@ margin: auto;
   background-color: #363636 !important;
   }
 
-
-/* REMOVED REVIEWS 
-  for review in home page * /
-.reviews{
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 20px;
-}
-
-.reviewbg{
-  background-color:#53959c;
-  text-align: center;
-  color: #ffffff;
-  padding: 20px;
-}
-
-    /* Three column layout * /
-.side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
-
-.middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
-
-.right {
-  text-align: right;
-}
-
-    /* Clear floats after the columns * /
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/ * The bar container * / 
-.bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
-
-  /* Individual bars * /
-.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
-.bar-4 {width: 20%; height: 18px; background-color: #2196F3;}
-.bar-3 {width: 15%; height: 18px; background-color: #00bcd4;}
-.bar-2 {width: 3%; height: 18px; background-color: #ff9800;}
-.bar-1 {width: 4%; height: 18px; background-color: #f44336;}
-
-    /* Responsive layout* /
-@media (max-width: 400px) {
-  .side, .middle {
-    width: 100%;
-  }
-  .right {
-    display: none;
-  }
-}
-
-.row{
-  padding-top:30px;
-}
-
-*/
 
 /* login and signup */
 .bodyMain, html{
@@ -379,7 +297,7 @@ input:focus{
   }
   
 .login_btn{
-  color: black !important;
+  color: rgb(229, 226, 226) !important;
   background-color: #53959c !important;
   width: 100px !important;
   }
@@ -398,7 +316,18 @@ margin-left: 4px;
   }
 
 .warningText{
-  text-align: left;
+  text-align: justify;
+  margin-left: 100px;
+  margin-right: 100px; 
   margin:0;
   color: red;
+} 
+
+.whiteIcon{
+  color: white;
+}
+
+.formlink{
+  color: #53959c;
+  font-weight: bold;
 }

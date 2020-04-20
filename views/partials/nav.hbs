@@ -25,17 +25,24 @@
               <li class="nav-item">
                 <a class="nav-link" href="/villa">VILLAS</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">PROFILE</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/status">STATUS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reservations">RESERVATIONS</a>
-              </li>
-            </ul>     
-            <a href="/login" class="btn loginNav" role="button" aria-disabled="true">Login</a>
+              {{#if user}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/profile">PROFILE</a>
+                </li>               
+              {{/if}}
+              {{#if isAdmin}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/reservations">RESERVATIONS</a>
+                </li> 
+              {{/if}}               
+  
+
+            </ul> 
+            {{#if user}}    
+              <a href="/logout" class="btn loginNav" role="button" aria-disabled="true">Logout</a>
+            {{else}} 
+              <a href="/login" class="btn loginNav" role="button" aria-disabled="true">Login</a>
+            {{/if}} 
             </div>
           </nav>
           </header>

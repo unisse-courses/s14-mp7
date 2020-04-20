@@ -11,16 +11,13 @@
             <div class="form-row">  
                 <label for="fname">Name</label>
                 <div class="input-group form-group">
-                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
             </div>
             </div>
 
             <div class="form-row">
                 <label for="username">Username</label>
                 <div class="input-group form-group">
-                <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-at"></i></span>
-                    </div>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="inputGroupPrepend">
                 </div>
             </div>
@@ -48,8 +45,10 @@
             </div>
             <p id="passWarning" class="warningText"></p> 
 
-            <div class="form-group">
+            <div class="form-rgroup">
+                <div class="form-check form-check-inline">
                 <label>Gender</label>
+                </div>
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="gender" id="genderMale" value="boy">
                 <label class="form-check-label" for="genderMale">Male</label>
@@ -61,7 +60,9 @@
             </div>
 
             <div class="form-group">
+                <div class="form-check form-check-inline">
                 <label>User Type</label>
+                </div>
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="userType" id="false" value="false">
                 <label class="form-check-label" for="false">Customer</label>
@@ -88,11 +89,11 @@
                 <p class="warningText">{{this}}</p>
             {{/each}}
         {{/if}} -->
-        <p id="warning" class="warningText"></p> 
+
         </div>
         <div class="card-footer">
             <div class="d-flex justify-content-center links">
-                <a href="/">Go back to Home page</a>
+                <a class="formlink" href="/">Go back to Home page</a>
             </div>
         </div>
 </div>

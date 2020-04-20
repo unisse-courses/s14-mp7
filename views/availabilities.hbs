@@ -1,8 +1,8 @@
 <div class="bodyClass">
       <h1>{{cap this.title}}</h1>
-                <div class="container-fluid" >
+            <div class="container-fluid" >
             <div class="row justify-content-center">
-                  <form action="/availabilities" method="POST">
+                  <form>
                   <div class="card-group">
                     <div class="card cardCustom">
                       <div class="card-body reserveForm">
@@ -13,7 +13,7 @@
                     <div class="card">
                       <div class="card-body reserveForm">
                         <h5 class="card-title">Check out</h5>
-                        <input class="form-control card-text formBG" type="date" id="checkOut" max = '2020-12-31'>
+                        <input class="form-control card-text formBG" type="date" id="checkOut" placeholder="Check Out" max = '2020-12-31'>
                       </div>
                     </div>
                     <div class="card">
@@ -57,49 +57,23 @@
                       </div>
                     </div>
                     <div class="card reserveLink">
-                     <button class="card-body reserveCard" type="submit" id="reserveBtn" onClick="return getValues()">
+                     <button class="card-body reserveCard" type="button" id="seeAvailable">
                           <h5 class="card-title reserveText">See Available Villas</h5>
-                      </button>
-
-                  </div>
-                 <input type="hidden" id="id" name="id" value="siargao">
-                </form>
-
-              </div>
-               <p id="warning" class="warningText"></p>
-            </div>
-
-        <br><br><br>
-        {{#each villa}}
-        <div class="container py-3">
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-4">
-                    <img src="{{this.imagePath}}" class="w-100 mx-3 my-3">
-                  </div>
-                  <div class="col-md-8 px-3">
-                    <div class="card-block px-3">
-                      <h4 class="card-title my-2">{{cap this.villageTheme}} {{cap this.villatype}} VILLA</h4>
-                      <p class="card-text md-left ml-2 pl-5">{{this.shortDesc}}</p>
-                      <div class="card-footer bg-transparent">
-                        <h5 class="text-muted">Php {{this.price}} per night</h5>
-                        <div class="centerReserveBtn">
-                          <button class="card-body reserveCard" type="submit" id="reserveNowBtn" onClick="return reserve(this.id)">
-                          <h5 class="card-title reserveText">Reserve Now</h5>
-                          </button>
-                         </div>
-                      </div>
+                     </button>
                     </div>
-                  </div>
-                </div>
+                
+                </form>
               </div>
             </div>
-          {{/each}}
-
+          <div class="container py-3">
+            <p id="warning" class="warningText"></p>
+          </div>
+        <br><br><br>
+          <div id="villaList">
+          </div>
 </div>
 
 <script>
-
     //to set minimum date to today
     var today = new Date();
     var dd = today.getDate();
@@ -118,89 +92,4 @@
     document.getElementById("checkIn").setAttribute("min", today);
     document.getElementById("checkOut").setAttribute("min", today);
 
-
-    function checkField(field, val) {
-        var valid = val;
-
-        if(field.val() == '') {
-            valid = false;
-            $("#warning").text("Fill-in missing information.");
-        } else {
-            $("#warning").text("");
-        }
-
-        return valid;
-    }
-
-
-    function getValues() {
-
-      var valid = true;
-      valid = checkField($("#checkIn"), valid);
-      valid = checkField($("#checkOut"), valid);
-
-      // Validating number of adults and children, total should not be greater than 8
-      total = +$("#adultNum").val() + +$("#childNum").val();
-      //document.getElementById("warning").innerHTML = total;
-      if(total > 8) {
-          $("#warning").text("Maximum capacity is 8.");
-          valid = false;
-      }
-
-      // Validating Date
-      if ($("#checkIn").val() < $("#checkOut").val()){
-        valid = true;
-      } else {
-        valid = false;
-        $("#warning").text("Please enter valid dates");
-      }
-
-      return valid;
-
-    }
-    /*
-    function reserve(clicked)
-    {
-    var userInput = getValues()
-
-    if(userInput == true)
-    {
-
-        var checkIn = new Date(document.getElementById("checkIn").value);
-        var checkOut = new Date(document.getElementById("checkOut").value);
-
-
-        totalNights =  parseInt((checkOut-checkIn) / (24 * 3600 * 1000));
-
-        if(clicked == "mykonosVIP")
-        {
-          compute(totalNights,5400);
-        }
-
-        if(clicked == "mykonosDeluxe")
-        {
-          compute(totalNights,8400);
-        }
-
-        if(clicked == "mykonosSuite")
-        {
-          compute(totalNights,11400);
-        }
-
-        if(clicked == "mykonosPremier")
-        {
-          compute(totalNights,15400);
-        }
-    }
-    else
-      alert("User Input Invalid")
-
-    }
-
-    function compute(nDays,price)
-    {
-    total = nDays*price;
-    alert("Total is " + total);
-    }
-    */
 </script>

@@ -10,6 +10,7 @@
             <th scope="col">Villa</th>
             <th scope="col">Check-in</th>
             <th scope="col">Check-out</th>
+            <th scope="col">Status</th>
             <th scope="col">Guest</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
             <td>{{cap this.villa.villatype}}</td>
             <td>{{this.checkIn}}</td>
             <td>{{this.checkOut}}</td>
+            <td>{{cap this.status}}</td>
             <td>{{this.account.username}}</td>
             </tr>   
             {{/each}}       

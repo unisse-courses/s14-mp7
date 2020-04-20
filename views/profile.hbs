@@ -2,23 +2,63 @@
 <div class="bodyClass">
     <div class="row">
           <div class="col-sm-6 col-md-2">
-           <!-- <img src="{{ imagePath }}" alt="Girl" class="img-rounded img-responsive profilepic" /> -->
-           <img src="img/girl.png" alt="Girl" class="img-rounded img-responsive profilepic" />
+           <!-- <img src="img/girl.png" alt="Girl" class="img-rounded img-responsive profilepic" /> -->
+           <img src="{{ imagePath }}" alt="Girl" class="img-rounded img-responsive profilepic" />
           </div>
           <div class="col-sm-6 col-md-4">
               <br>
-             <!-- <h4>{{ name }}</h4> -->
-                <h4>Bea Gomez</h4>
-              <!--  <i class="fas fa-user"></i> {{ username }} -->
-                <i class="fas fa-user"></i>  @beagomez
+             <!-- <h4>Bea Gomez</h4> -->
+                <h4>{{ name }}</h4>
+              <!-- <i class="fas fa-user"></i>  @beagomez  -->
+                <i class="fas fa-user"></i> {{ username }}
                 <br>
-              <!--  <i class="fas fa-at"></i> {{ email }} -->
-                <i class="fas fa-at"></i> beagomez@gmail.com
+              <!-- <i class="fas fa-at"></i> beagomez@gmail.com  -->
+                <i class="fas fa-at"></i> {{ email }}
                 <br><br>
                 <a href="/logout" class="btn loginNav" role="button" aria-disabled="true">Logout</a>
           </div>
     </div>
     <br>
+    <br>
+    {{#if isGuest}}
+    <h1>STATUS</h1>
+    <br>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Village</th>
+            <th scope="col">Villa</th>
+            <th scope="col">Check-in</th>
+            <th scope="col">Check-out</th>
+            <th scope="col">Adult/s</th>
+            <th scope="col">Child/ren</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+            <th scope="col">Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each reservation}}
+            <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td>{{cap this.villa.villageTheme}}</td>
+            <td>{{cap this.villa.villatype}}</td>
+            <td>{{this.checkIn}}</td>
+            <td>{{this.checkOut}}</td>
+            <td>{{this.adultNum}}</td>
+            <td>{{this.childrenNum}}</td>
+            <td>Php {{comma this.total}}</td>
+            <td>{{cap this.status}}</td>
+            <form action="/cancel" method="POST">
+                 <input id="reservationId" name="reservationId" value="{{this._id}}" type="hidden">
+                <td><button class="btn-sm manageBtn" aria-disabled="true">Cancel</button></td>
+            </form>
+            </tr> 
+            {{/each}}       
+        </tbody>
+    </table>
+    {{/if}}
     <br>
     <br>
 </div>

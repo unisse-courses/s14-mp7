@@ -32,6 +32,35 @@ const loginValidation = [
 
   body('password').not().isEmpty().withMessage("Password is required.")
 ];
+/*
+const reserveValidation = [
+  
+  body('checkIn')
+    .custom((value) => {
+      if(value == '') {
+        throw new Error ('Check In date is required');
+      }
+      return true;
+    }),
+  body('checkOut')
+    .custom((value, { req }) => {
+      if(value == '') {
+        throw new Error ('Check Out date is required');
+      }
+      if(new Date(value) <= new Date(req.body.checkIn)) {
+          throw new Error ('Check Out date must be after Check In date');
+      }
+      return true;
+    }),
+  body('pax')
+  .custom((value) => {
+    if(value > 8) {
+      throw new Error ('Maximum capacity is 8.');
+    }
+    return true;
+  }),
 
-// update exports
+];
+*/
+
 module.exports = { signupValidation, loginValidation };
