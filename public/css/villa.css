@@ -89,9 +89,13 @@ table, th, td{
 footer {
   font-size: small;
   background-color: rgb(66, 64, 64);
-  margin-top: 10px;
+  margin-top: 350px;
   padding: 10px;
   color: rgba(255, 255, 255, 0.568);
+  position: relative;
+  bottom: 0;
+  clear:both;
+   z-index: 1;
 
 }
 
@@ -109,6 +113,12 @@ footer {
   color: #f1f1f1;
   text-decoration: none;
 }
+
+.footerlink:hover{
+  color: #95b8f0;
+
+}
+
 
 /*image slideshows*/
 ol.carousel-indicators {
@@ -195,10 +205,11 @@ margin: auto;
     border-top: 2px solid #53959c;
     border-bottom: 2px solid #53959c;
     margin-bottom: 0;
+    position: relative;
   }
 
   .cardCustom{
-    width: 300px;
+    width: 500px;
   }
 
   .cardCustom2{
@@ -249,6 +260,12 @@ margin: auto;
   .reserveText2{
     color: rgb(229, 226, 226);
     text-align: center;
+    margin: auto;
+    font-size: 25px;
+    line-height: 35px;
+    justify-content: center;
+    position: relative;
+    padding: 0px;
   }
 
   .reserveCard:hover{
@@ -264,6 +281,7 @@ margin: auto;
   height: 100%;
   font-family: 'Libre Franklin', sans-serif;
   color: white;
+
   }
 
 .divcontainer{
