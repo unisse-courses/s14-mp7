@@ -2,13 +2,13 @@
 <div class="divcontainer">
         <div class="d-flex justify-content-center h-100">
         <div class="card signup">
-            <div class="card-header">
+            <div style="text-align: center; margin-top: 15px; padding: 15px 0 0 0;">
                 <h3>Sign Up</h3>
             </div>
         <div class="card-body">
         <form action="/signup" method="POST">
          {{> messages}}
-            <div class="form-row">  
+            <div class="form-row">
                 <label for="fname">Name</label>
                 <div class="input-group form-group">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
@@ -28,7 +28,7 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="email@domain.com">
                 </div>
             </div>
-            <p id="emailWarning" class="warningText"></p> 
+            <p id="emailWarning" class="warningText"></p>
 
             <div class="form-row">
                     <label for="password">Password</label>
@@ -43,7 +43,7 @@
                     <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
                     </div>
             </div>
-            <p id="passWarning" class="warningText"></p> 
+            <p id="passWarning" class="warningText"></p>
 
             <div class="form-rgroup">
                 <div class="form-check form-check-inline">
@@ -80,7 +80,7 @@
                 Agree to terms and conditions
                 </label>
             </div>
-            </div> 
+            </div>
             <button class="btn float-right login_btn" id="signup">Sign up</button>
         </form>
         <!--

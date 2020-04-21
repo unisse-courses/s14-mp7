@@ -59,10 +59,10 @@ float: right;
   background-color: rgb(255, 255, 255);
 }
 
-p{  
+p{
   text-align: justify;
   margin-left: 100px;
-  margin-right: 100px; 
+  margin-right: 100px;
 }
 
 h1{
@@ -92,7 +92,7 @@ footer {
   margin-top: 10px;
   padding: 10px;
   color: rgba(255, 255, 255, 0.568);
-  
+
 }
 
 .centertext{
@@ -156,7 +156,7 @@ margin: auto;
   border: 2px solid #53959c;
 }
 
-.pCards{  
+.pCards{
   text-align: justify;
   margin: auto;
 }
@@ -164,7 +164,7 @@ margin: auto;
 /* buttons */
 .loginNav:hover{
   color: rgb(229, 226, 226) !important;
-  background-color: rgb(0, 0, 0) !important;  
+  background-color: rgb(0, 0, 0) !important;
 }
 
 .loginNav{
@@ -175,13 +175,13 @@ margin: auto;
 
 .manageBtn:hover{
   color: rgb(229, 226, 226) !important;
-  background-color: rgb(253, 60, 60) !important;  
+  background-color: rgb(253, 60, 60) !important;
 }
 
 .manageBtn{
   background-color: #53959c !important;
   color: rgb(66, 64, 64);
- } 
+ }
 
 .centerReserveBtn{
   text-align: center;
@@ -196,7 +196,7 @@ margin: auto;
     border-bottom: 2px solid #53959c;
     margin-bottom: 0;
   }
-  
+
   .cardCustom{
     width: 300px;
   }
@@ -210,18 +210,28 @@ margin: auto;
   }
 
   .formBG{
-    background-color:#363636 !important; 
+    background-color:#363636 !important;
     border: 1px solid #53959c !important;
     color: rgb(229, 226, 226) !important;
   }
 
   .reserveCard{
-    background-color:#53959c;
+   background-color:#53959c;
     border-left: 2px solid #53959c;
     border-right: 2px solid #53959c;
     border-top: 2px solid #53959c;
     border-bottom: 2px solid #53959c;
     text-align: center;
+    transition-duration: 500ms;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 123px;
+    height: 53px;
+    padding: 0 30px;
+    font-size: 16px;
+    line-height: 100px;
+    text-transform: capitalize;
   }
 
   .reserveLink{
@@ -231,6 +241,12 @@ margin: auto;
   }
 
   .reserveText{
+    color: rgb(229, 226, 226);
+    text-align: center;
+    line-height: 10px;
+  }
+
+  .reserveText2{
     color: rgb(229, 226, 226);
     text-align: center;
   }
@@ -249,21 +265,21 @@ margin: auto;
   font-family: 'Libre Franklin', sans-serif;
   color: white;
   }
-  
+
 .divcontainer{
   height: 100%;
   align-content: center;
   }
-  
-  
+
+
 .login{
-  height: 390px; 
+  height: 390px;
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
   background-color: rgba(0,0,0,0.5) !important;
   }
-  
+
 .signup{
   height: 820px;
   margin-top: auto;
@@ -271,46 +287,46 @@ margin: auto;
   width: 400px;
   background-color: rgba(0,0,0,0.5) !important;
   }
-  
-  
+
+
 .input-group-prepend span{
   width: 50px;
   background-color: #53959c;
   color: black;
   border:0 !important;
   }
-  
+
 input:focus{
   outline: 0 0 0 0  !important;
   box-shadow: 0 0 0 0 !important;
   }
-  
+
 .remember{
   color: white;
   }
-  
+
 .remember input{
   width: 20px;
   height: 20px;
   margin-left: 15px;
   margin-right: 5px;
   }
-  
+
 .login_btn{
   color: rgb(229, 226, 226) !important;
   background-color: #53959c !important;
   width: 100px !important;
   }
-  
+
 .login_btn:hover{
   color: black;
   background-color: white;
   }
-  
+
 .links{
   color: white;
   }
-  
+
 .links a{
 margin-left: 4px;
   }
@@ -318,10 +334,10 @@ margin-left: 4px;
 .warningText{
   text-align: justify;
   margin-left: 100px;
-  margin-right: 100px; 
+  margin-right: 100px;
   margin:0;
   color: red;
-} 
+}
 
 .whiteIcon{
   color: white;

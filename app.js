@@ -63,10 +63,10 @@ app.use((req, res, next) => {
   if(req.session.Account){
     res.locals.user = req.session.Account;
     if(req.session.isAdmin)
-      res.locals.isAdmin = req.session.isAdmin;  
+      res.locals.isAdmin = req.session.isAdmin;
     else if(!(req.session.isAdmin))
-      res.locals.isGuest = true; 
-  } 
+      res.locals.isGuest = true;
+  }
   next();
 });
 
