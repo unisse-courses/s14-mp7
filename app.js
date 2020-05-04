@@ -17,8 +17,10 @@ const guestRouter = require('./routers/guestRouter');
 //This is for the initial seeding of documents in MongoDB Atlas
 //require('./models/seeder');
 
+const { envPort, sessionKey } = require('./config');
+
 const app = express();
-const port = 3000;
+const port = envPort||3000;
 
 app.engine( 'hbs', exphbs({
   extname: 'hbs',
