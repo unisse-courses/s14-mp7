@@ -17,7 +17,7 @@ const reservationSchema = new mongoose.Schema({
     total: {type: Number, required: true},
     status: {type: String, 
             required: true, 
-            enum: ['Active', 'Cancelled', 'Completed'], 
+            enum: ['Active', 'Completed'], 
             default: 'Active'}
 });
 
