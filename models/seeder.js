@@ -7,8 +7,8 @@ const Amenity = require('../models/amenity');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
 const bcrypt = require('bcrypt');
-//const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
-const databaseURL = 'mongodb://localhost:27017/villalaisladb';
+const databaseURL = 'mongodb+srv://admin:admin@ccapdev-4kkwb.gcp.mongodb.net/s14mp7db';
+//const databaseURL = 'mongodb://localhost:27017/villalaisladb';
 const options = { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false };
