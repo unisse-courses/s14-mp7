@@ -50,10 +50,34 @@
             <td>{{this.childrenNum}}</td>
             <td>Php {{comma this.total}}</td>
             <td>{{cap this.status}}</td>
+            <!-- 
             <form action="/cancel" method="POST">
                  <input id="reservationId" name="reservationId" value="{{this._id}}" type="hidden">
                 <td><button class="btn-sm manageBtn" aria-disabled="true">Cancel</button></td>
-            </form>
+            </form> -->
+            <td><button class="btn-sm manageBtn" aria-disabled="true" data-toggle="modal" data-target="#cancelModal">Cancel</button></td>
+            <!-- Cancel Confirmation-->
+            <div id="cancelModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/cancel" method="POST">
+                            <div class="modal-header">						
+                                <h5 class="modal-title">Cancel Reservation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">					
+                                <p class="cancel_p">Are you sure you want to cancel the Reservation?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-light cancel_btn" data-dismiss="modal" value="No">
+                                <input id="reservationId" name="reservationId" value="{{this._id}}" type="hidden">
+                                <button type="submit" class="btn login_btn" aria-disabled="true">Yes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             </tr> 
             {{/each}}       
         </tbody>

@@ -365,3 +365,35 @@ margin-left: 4px;
   color: #53959c;
   font-weight: bold;
 }
+
+/* Cancel Modal */
+.modal .modal-dialog {
+  max-width: 400px;
+}
+
+.modal .modal-content {
+  border-radius: 3px;
+}
+
+.modal .modal-footer {
+  background: #ecf0f1;
+  border-radius: 0 0 3px 3px;
+}
+
+.modal .form-control {
+  border-radius: 2px;
+  box-shadow: none;
+  border-color: #dddddd;
+}
+
+.cancel_btn{
+  width: 100px !important;
+}
+
+.cancel_p{
+  font-size: 14px;
+  text-align: left;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
