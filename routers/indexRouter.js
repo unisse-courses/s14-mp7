@@ -11,10 +11,17 @@ const villageController = require('../controllers/villageController');
 router.get('/', villageController.getAllVillages);
 
 
-// About route
-router.get('/about', function(req, res) {
+// The Resort route
+router.get('/resort', function(req, res) {
   res.render('about', {
       title: 'the resort'
+  })
+});
+
+// About route
+router.get('/about', function(req, res) {
+  res.render('libraries', {
+    title: 'about'
   })
 });
 
