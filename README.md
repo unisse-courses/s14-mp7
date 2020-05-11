@@ -36,3 +36,6 @@ Click ** to see the deployed web application in Heroku.
 	username: admin
 	password: admin
 2. Go to 'Reservations' page
+
+## NPM Packages and Third Party Libraries
+NPM Packages and Third Party Libraries used can be found in `http://localhost:3000/about`. The link to the about page can be clicked in the footer's navigation bar.
