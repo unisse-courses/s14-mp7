@@ -17,15 +17,15 @@ Click ** to see the deployed web application in Heroku.
 ## Local Setup
 1. Navigate to the directory: `cd s14-mp7`
 2. Install the dependencies: `npm install`
-3. Run the server using the script defined (using nodemon): `npm run debug`
+3. Run the server using the script defined (using nodemon): `npm run dev`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
     * Expected screen should home page of Villa La Isla
     * All pages can be accessed through the navigation bar except from the page used to reserve a villa which can be accessed when 'Reserve A Villa' button is clicked in any of the village pages (Siargao, Toscana, Mykonos).
 
 ## How to Reserve
 1. Sign up as guest or log in using:
-	username: guest1
-	password: guest1
+	username: guest
+	password: guest
 2. Go to any of the villages then click the 'Reserve A Villa' button.
 3. Enter the check-in and check-out dates, number of guests, and the village theme to see available villas.
 4. Available villas will be shown and click the 'Reserve Now' button of the villa you want to reserve.
@@ -33,6 +33,6 @@ Click ** to see the deployed web application in Heroku.
 
 ## How to View Reservations
 1. Sign up as admin or log in using
-	username: admin1
-	password: admin1
+	username: admin
+	password: admin
 2. Go to 'Reservations' page
