@@ -15,7 +15,7 @@ const employeeRouter = require('./routers/employeeRouter');
 const guestRouter = require('./routers/guestRouter');
 
 //This is for the initial seeding of documents in MongoDB Atlas
-require('./models/seeder');
+//require('./models/seeder');
 
 const { envPort, sessionKey } = require('./config');
 
