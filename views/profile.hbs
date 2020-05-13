@@ -1,19 +1,32 @@
 <div class="container">
 <div class="bodyClass">
-    <div class="row">
-          <div class="col-sm-6 col-md-2">
-           <img src="{{ imagePath }}" alt="Girl" class="img-rounded img-responsive profilepic" />
-          </div>
-          <div class="col-sm-6 col-md-4">
-              <br>
-                <h4>{{ name }}</h4>
-                <i class="fas fa-user"></i> {{ username }}
-                <br>
-                <i class="fas fa-at"></i> {{ email }}
-                <br><br>
-                <a href="/logout" class="btn loginNav" role="button" aria-disabled="true">Logout</a>
+        <div class="row">
+          {{> messages}}
+              <div class="col-sm-6 col-md-2">
+               <img src="{{ imagePath }}" alt="Girl" class="img-rounded img-responsive profilepic" />
+              </div>
+              <div class="col-sm-6 col-md-4">
+                  <br>
+                    <h4>{{ name }}</h4>
+                    <i class="fas fa-user"></i> {{ username }}
+                    <br>
+                    <i class="fas fa-at"></i> {{ email }}
+                    <br><br>
+                  <button type="submit" class="btn loginNav" onclick="showEdit()" >Edit Username</button>
+                </div>
+                <div class="customCol" id= "EditProfile">
+                        <div class="form-row">
+                            <label for="username">Username</label>
+                            <div class="input-group form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div style="float: right;">
+                        <input type="button" class="btn btn-light cancel_btn" value="Cancel" onclick="showEdit()">
+                        <button type="submit" class="btn loginNav" aria-disabled="true" id=editUser >Save</button>
+                      </div>
+                </div>
         </div>
-    </div>  
     <br>
     <br>
     {{#if isGuest}}
@@ -56,11 +69,11 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <form action="/cancel" method="POST">
-                                        <div class="modal-header">						
+                                        <div class="modal-header">
                                             <h5 class="modal-title">Cancel Reservation</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                         </div>
-                                        <div class="modal-body">					
+                                        <div class="modal-body">
                                             <p class="cancel_p">Are you sure you want to cancel the Reservation?</p>
                                         </div>
                                         <div class="modal-footer">
@@ -80,15 +93,34 @@
                         
 
 
-                        </tr> 
-                    {{/each}}       
+                        </tr>
+                    {{/each}}
                 </tbody>
             </table>
                 {{else}}
-                    <p style="text-align: center;">No reservations yet.</p>   
-        {{/if}}  
+                    <p style="text-align: center;">No reservations yet.</p>
+        {{/if}}
     {{/if}}
     <br>
     <br>
 </div>
 </div>
+
+<script>
+        EditProfile.style.display = 'none';
+
+
+        function showEdit()
+        {
+            var x=document.getElementById("EditProfile");
+
+            if(x.style.display=== "none")
+            {
+              x.style.display ="block";
+            }
+            else
+            {
+              x.style.display ="none";
+            }
+        }
+</script>

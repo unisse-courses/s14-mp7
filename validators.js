@@ -30,9 +30,13 @@ const signupValidation = [
 
 const loginValidation = [
 
-  body('username').not().isEmpty().withMessage("Username is required."), 
+  body('username').not().isEmpty().withMessage("Username is required."),
 
   body('password').not().isEmpty().withMessage("Password is required.")
 ];
 
-module.exports = { signupValidation, loginValidation };
+const editValidation = [
+  body('username').not().isEmpty().withMessage("Username is required.")
+];
+
+module.exports = { signupValidation, loginValidation,editValidation};

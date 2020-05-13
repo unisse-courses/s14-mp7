@@ -124,3 +124,21 @@ exports.logoutUser = (req, res) => {
     });
   }
 };
+
+
+exports.editUser = (req, res) => {
+
+      const errors = validationResult(req);
+
+      if (errors.isEmpty()) {
+
+        accountModel.getUser({username: req.body.username}, (err, result) => {
+          if (result) {
+            console.log(result);
+            // Match found
+            req.flash('error_msg', 'Username is already taken.');
+            res.redirect('/profile');
+          }
+        }
+      }
+};
