@@ -40,4 +40,6 @@ router.post('/availabilities', villaController.getAvailabilities);
 
 router.post('/reserve', reservationController.getReservation);
 
+router.post('/reserveavailabilities', isLoggedIn,  reservationController.getAvailabilities);
+
 module.exports = router;
