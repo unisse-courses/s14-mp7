@@ -31,6 +31,35 @@ exports.getAllReservations = function(req, res) {
     });
 };
 
+//for getting the actual available villas that are not yet booked
+exports.getAvailabilities = function(req, res) {
+
+    //get date today
+    var dateToday = new Date();
+    var offset = dateToday.getTimezoneOffset() / 60;
+    var hours = dateToday.getHours();
+    dateToday.setHours(hours - offset);
+
+    var query = { 
+          status: "Active",
+          checkOut: { "$lte": dateToday }
+    };
+    update = { 
+          "$set": { status: "Completed" }
+    };
+
+    //update all reservations first
+    reservationModel.updateReservations(query, update, function(err, reservations) {
+      if (err) throw err;
+    }); 
+
+    reservationModel.getAll({checkOut:1}, function(err, reservations) {
+
+      res.send(reservations);
+
+  });
+};
+
 exports.getStatus = function(req, res) {
       
 

@@ -197,13 +197,13 @@ margin: auto;
   text-align: center;
 }
 
-/* for reserving */
+/* for reserving */ 
   .reserveForm{
-    background-color: #363636;
-    border-left: 2px solid #53959c;
-    border-right: 2px solid #53959c;
-    border-top: 2px solid #53959c;
-    border-bottom: 2px solid #53959c;
+    background-color: #ffffff;
+    border-left: 1px solid #53959c;
+    border-right: 1px solid #53959c;
+    border-top: 1px solid #53959c;
+    border-bottom: 1px solid #53959c;
     margin-bottom: 0;
     position: relative;
   }
@@ -218,12 +218,13 @@ margin: auto;
 
   .card-title{
     color: #53959c;
+    font-weight: bold;
   }
 
   .formBG{
-    background-color:#363636 !important;
+    background-color:#ffffff !important;
     border: 1px solid #53959c !important;
-    color: rgb(229, 226, 226) !important;
+    color: rgb(0, 0, 0) !important;
   }
 
   .reserveCard{
