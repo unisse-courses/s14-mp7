@@ -21,15 +21,14 @@ accountModel.create = function(obj, next) {
     });
   };
 
-  accountModel.getUser = function(query, next){
+accountModel.getUser = function(query, next){
 
-    accountModel.findOne(query).exec(function(err, Account) {
-        if (err) throw err;
+  accountModel.findOne(query).exec(function(err, Account) {
+      if (err) throw err;
 
-        next(err, Account);
-    });
-  
+      next(err, Account);
+  });
+
 }
-
 
 module.exports = mongoose.model('Account', accountSchema);
