@@ -36,8 +36,16 @@ app.engine( 'hbs', exphbs({
     cap: function(text) { return text.toUpperCase(); },
     inc: function(value) { return parseInt(value) + 1;},
     comma: function(value) {
-      return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"); }
-  }
+      return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"); },
+    isEqual: function(a, b, opts) {
+      if (a == b) {
+        return opts.fn(this); 
+      } else { 
+        return opts.inverse(this);
+      } 
+    }
+  },
+    
 
 }));
 

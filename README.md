@@ -9,10 +9,10 @@
 * Ramos, Alexandra Louise
 
 # Villa La Isla
-This is the code of group 7 of CCAPDEV S14. This web application is a Villa Reservation System with three (3) themed villages (Siargao, Toscana, Mykonos) consisting of four (4) types of villa (VIP, Deluxe, Suite, Premier). This allows registered users to reserve a villa.
+This is the code of CCAPDEV S14 group 7. This web application is a Villa Reservation System with three (3) themed villages (Siargao, Toscana, Mykonos) consisting of four (4) types of villa (VIP, Deluxe, Suite, Premier). This allows registered users to reserve a villa.
 
 ## Application Deployed in Heroku
-Click ** to see the deployed web application in Heroku.
+Click [Villa La Isla in Heroku](https://machine-project3.herokuapp.com/) to see the deployed web application in Heroku.
 
 ## Local Setup
 1. Navigate to the directory: `cd s14-mp7`
@@ -35,7 +35,7 @@ Click ** to see the deployed web application in Heroku.
 1. Sign up as admin or log in using
 	username: admin
 	password: admin
-2. Go to 'Reservations' page
+2. Go to 'Reservations' page to view reservations
 
 ## NPM Packages and Third Party Libraries
 NPM Packages and Third Party Libraries used can be found in `http://localhost:3000/about`. The link to the about page can be clicked in the footer's navigation bar.
