@@ -199,7 +199,7 @@ margin: auto;
 
 /* for reserving */
   .reserveForm{
-    background-color: #ffffff;
+    background-color: #363636;
     border-left: 1px solid #53959c;
     border-right: 1px solid #53959c;
     border-top: 1px solid #53959c;
@@ -218,13 +218,12 @@ margin: auto;
 
   .card-title{
     color: #53959c;
-    font-weight:bold;
   }
 
   .formBG{
-    background-color:#ffffff!important;
+    background-color:#363636!important;
     border: 1px solid #53959c !important;
-    color: rgb(0, 0, 0) !important;
+    color:  rgb(229, 226, 226) !important;
   }
 
   .reserveCard{

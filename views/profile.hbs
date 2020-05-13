@@ -47,15 +47,12 @@
                         <td>{{this.childrenNum}}</td>
                         <td>Php {{comma this.total}}</td>
                         <td>{{cap this.status}}</td>
+                        
                         {{#isEqual this.status "Active"}}
                             <td><button class="btn-sm manageBtn" aria-disabled="true" data-toggle="modal" data-target="#cancelModal">Cancel</button></td>
-                        {{/isEqual}}
-                        {{#isEqual this.status "Completed"}}
-                            <td></td>
-                        {{/isEqual}}
-                        
                         <!-- Cancel Confirmation-->
                         <div id="cancelModal" class="modal fade">
+                            
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <form action="/cancel" method="POST">
@@ -68,6 +65,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <input type="button" class="btn btn-light cancel_btn" data-dismiss="modal" value="No">
+                                             {{log this._id}}
                                             <input id="reservationId" name="reservationId" value="{{this._id}}" type="hidden">
                                             <button type="submit" class="btn login_btn" aria-disabled="true">Yes</button>
                                         </div>
@@ -75,6 +73,12 @@
                                 </div>
                             </div>
                         </div>
+                        {{/isEqual}}
+                        {{#isEqual this.status "Completed"}}
+                            <td></td>
+                        {{/isEqual}}
+                        
+
 
                         </tr> 
                     {{/each}}       

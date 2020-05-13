@@ -36,10 +36,10 @@ router.get('/availabilities', isLoggedIn, function(req, res) {
     });
 });
 
-router.post('/availabilities', villaController.getAvailabilities);
+router.post('/availabilities', isLoggedIn, villaController.getAvailabilities);
 
-router.post('/reserve', reservationController.getReservation);
+router.post('/reserve', isLoggedIn, reservationController.getReservation);
 
-router.post('/reserveavailabilities', isLoggedIn,  reservationController.getAvailabilities);
+router.post('/reserveavailabilities', isLoggedIn, reservationController.getAvailabilities);
 
 module.exports = router;

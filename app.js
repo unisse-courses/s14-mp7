@@ -43,6 +43,9 @@ app.engine( 'hbs', exphbs({
       } else { 
         return opts.inverse(this);
       } 
+    },
+    log: function(data) {
+      console.log(data);
     }
   },
     
