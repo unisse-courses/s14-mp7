@@ -119,22 +119,94 @@ $(document).ready(function() {
         
         // if successful
         if(valid === true){
+
+            
             var villageTheme = $('#villageTheme').val();
             var pax =  parseInt($('#adultNum').val()) + parseInt($('#childNum').val());
-            var checkInDate = $('#checkIn').val();
-            var checkOutDate = $('#checkOut').val();
-            $.post('/availabilities', { villageTheme: villageTheme, pax: pax, checkIn: checkInDate, checkOut: checkOutDate}, function(data, status) {
-                
-                //console.log(data);
-                
-                var villaList = $('#villaList');
-                villaList.empty();
-                
-                if(data.length > 0){
-                    data.forEach((item, i) => {
-                        addVillaDiv(item, villaList);
-                    });
+            var checkInDate = new Date($('#checkIn').val());
+            var checkOutDate = new Date($('#checkOut').val());
+            checkInDate.setHours(0);
+            checkOutDate.setHours(0);
 
+            $.post('/reserveavailabilities', function(data, status) {
+
+                var reservationList = data;
+                console.log(reservationList);
+
+
+                $.post('/availabilities', { villageTheme: villageTheme, pax: pax, checkIn: checkInDate, checkOut: checkOutDate}, function(data, status) {
+                
+               
+                    var availdata = data;
+                    
+                    console.log(availdata);
+
+                    var villaList = $('#villaList');
+                    villaList.empty();
+                    
+                    if(availdata.length > 0){
+                    
+                        //show all available villas
+
+                        var vipAvailable = 1;
+                        var deluxeAvailable = 1;
+                        var suiteAvailable = 1;
+                        var premierAvailable = 1;
+
+                        //loop through villas data array
+                        for(var index = 0; index < availdata.length; index++) {
+                            //loop through the reservations, checking for statuses, dates, capacity, villageTheme
+                            for(var index1 = 0; index1 < reservationList.length; index1++){
+                                    
+                                var cInDate = new Date(reservationList[index1].checkIn);
+                                var cOutDate = new Date(reservationList[index1].checkOut);
+                                var vstatus = reservationList[index1].status;
+                                var vTheme = reservationList[index1].villa.villageTheme;
+                                var vType = reservationList[index1].villa.villatype;
+                                var villaListType = availdata[index].villatype;
+                                var vcapacity = availdata[index].capacity;
+                                    
+                                if((vstatus == "Active") & ((cInDate.getTime() == checkInDate.getTime()) & (vTheme == villageTheme) & (vType == villaListType)) & (cOutDate.getTime() == checkOutDate.getTime()) ){
+                                    
+                                    if(villaListType == "vip")
+                                        vipAvailable = 0;
+
+                                    else if(villaListType == "deluxe")
+                                        deluxeAvailable = 0;
+
+                                    else if(villaListType == "suite")
+                                        suiteAvailable = 0;
+
+                                    else if(villaListType == "premier")
+                                        premierAvailable = 0;
+                                    }
+                                
+                                    console.log('hotgod' + vipAvailable);
+                                    console.log('hotgod' + deluxeAvailable);
+                                    console.log('hotgod' + suiteAvailable);
+                                    console.log('hotgod' + premierAvailable);
+
+                                }   
+                            }
+                            
+                            if((vipAvailable == 1)  && (pax > 0) && (pax <= 2)){
+                                element = availdata[availdata.findIndex(x => x.villatype === "vip")];
+                                addVillaDiv(element, villaList);
+                            }
+                            if((deluxeAvailable == 1) && (pax > 0) && (pax <= 4)){
+                                element = availdata[availdata.findIndex(x => x.villatype === "deluxe")];
+                                addVillaDiv(element, villaList);
+                            }
+                            if((suiteAvailable == 1) && (pax > 0) && (pax <= 6)){
+                                element = availdata[availdata.findIndex(x => x.villatype === "suite")];
+                                addVillaDiv(element, villaList);
+                            }
+                            if((premierAvailable == 1) && (pax > 0) && (pax <= 8)){
+                                element = availdata[availdata.findIndex(x => x.villatype === "premier")];
+                                addVillaDiv(element, villaList);
+                        }
+                    
+                        console.log('hotdog');
                         // reserve a villa
                         $('.reserveNow').click(function() {
                             
@@ -183,7 +255,9 @@ $(document).ready(function() {
                 }
         
             });
-        } 
+            });
+        }
     });
+    
   });
   

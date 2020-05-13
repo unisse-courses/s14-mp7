@@ -31,6 +31,14 @@ exports.getAllReservations = function(req, res) {
     });
 };
 
+exports.getAvailabilities = function(req, res) {
+
+  reservationModel.getAll({checkOut:1}, function(err, reservations) {
+
+      res.send(reservations);  
+  });
+};
+
 exports.getStatus = function(req, res) {
       
 
