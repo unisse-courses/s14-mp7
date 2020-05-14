@@ -7,7 +7,7 @@
               <div class="col-sm-6 col-md-4">
                   <br>
                     <h4>{{ name }}</h4>
-                    <i class="fas fa-user"></i> {{ username }}
+                    <i class="fas fa-user"></i><span id="userProfile"> {{ username }}</span> 
                     <br>
                     <i class="fas fa-at"></i> {{ email }}
                     <br><br>
@@ -123,6 +123,27 @@ $(document).ready(function () {
 
         return true;
     });
+
+    $("#editUser").on('click', function () {
+            var valid = true;
+            valid = checkField($("#username"), valid);
+            var username =  $("#username").val();
+            if (valid == true){
+                $.post('/edit', {username : username}, function (result){
+                    $("#warning").text("");
+                    if (result.success === true) {
+                        var message = result.message;
+                        $("#warning").text(message);
+                    } else if (result.success === false){
+                        var message = result.message;
+                        $("#warning").text(message);
+                    }
+
+                });
+            }
+
+            return true;
+    });
 });
 
 
@@ -155,28 +176,4 @@ function checkField(field, val) {
     return valid;
 }
 
-
-$("#editUser").on('click', function () {
-    var valid = true;
-    valid = checkField($("#username"), valid);
-    var username =  $("#username").val();
-    if (valid == true){
-        $.post('/edit', {username : username}, function (result){
-            $("#warning").text("");
-            if (result.success == true) {
-                /*
-                var form=document.getElementById("EditProfile");
-                form.style.display ="none" */
-
-               // window.location.replace(result.url);
-            } else if (result.success == false){
-                var message = result.message;
-                $("#warning").text(message);
-            }
-
-        });
-    }
-
-    return true;
-});
 </script>

@@ -129,16 +129,14 @@ exports.editUser = (req, res) => {
 
       var result;
       var username = req.body.username;
-      console.log("Username is " + username);
+     // console.log("Username is " + username);
         accountModel.getUser({username: username}, (err, user) => {
           if (user) {
 
-            console.log("ERROR. username is " + req.body.username);
-            console.log("user is " + user);
+            console.log("Username exists. username is " + req.body.username);
             // Match found
             result = { success: false, message: "Username already taken. Please try again."}
-           // res.send(result);
-        
+            res.send(result);
           } else if (!(user)) {
              
               
@@ -153,20 +151,17 @@ exports.editUser = (req, res) => {
               accountModel.updateUser(query, update, (err, user) => {
                 if (err) {
                   result = { success: false, message: "Could not edit username. Please try again."}
-                 // res.send(result);
-                
+                  res.send(result);
                 } else {
-                  console.log("SUCCESS");
                   req.session.username = username;
                   console.log("Session username " + req.session.username);
-                  result = { success: true, message: "Successfully edited username!", url:'/profile'}
-                  
-                  
+                  result = { success: true, message: "Successfully edited username! Login again.", url:'/profile'}
+                  res.send(result);
                 }
               }); 
   
           }
-          res.send(result);
+         
         });
 
 };
