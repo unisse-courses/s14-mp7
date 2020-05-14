@@ -32,8 +32,9 @@ router.get('/profile', isLoggedIn, reservationController.getStatus);
 // Profile POST
 router.post('/cancel', isLoggedIn, reservationController.cancelReservation);
 
+
 // Edit Post
-router.post('/edit', isLoggedIn,signupValidation, accountController.editUser );
+router.post('/edit', isLoggedIn,editValidation,accountController.editUser );
 
 
 module.exports = router;
