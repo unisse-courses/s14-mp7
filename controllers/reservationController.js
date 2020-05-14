@@ -125,11 +125,11 @@ exports.getReservation = function(req, res) {
 exports.cancelReservation = function(req, res) {
   console.log("Reservation ID to cancel: " + req.body.reservationId);
   var id = req.body.reservationId;
-  
+
   reservationModel.cancel(id, function(err){    
     if (err) throw err;
     console.log("Successfully cancelled Reservation!");
   }); 
-  res.redirect('/profile');
 
+  res.sendStatus(200);
 }; 

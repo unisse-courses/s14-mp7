@@ -139,6 +139,6 @@ exports.editUser = (req, res) => {
             req.flash('error_msg', 'Username is already taken.');
             res.redirect('/profile');
           }
-        }
+        });
       }
 };
