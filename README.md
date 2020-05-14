@@ -12,7 +12,7 @@
 This is the code of CCAPDEV S14 group 7. This web application is a Villa Reservation System with three (3) themed villages (Siargao, Toscana, Mykonos) consisting of four (4) types of villa (VIP, Deluxe, Suite, Premier). This allows registered users to reserve a villa.
 
 ## Application Deployed in Heroku
-Click [Villa La Isla in Heroku](https://machine-project3.herokuapp.com/) to see the deployed web application in Heroku.
+Click [Villa La Isla in Heroku](https://villalaisla.herokuapp.com/) to see the deployed web application in Heroku.
 
 ## Local Setup
 1. Navigate to the directory: `cd s14-mp7`
