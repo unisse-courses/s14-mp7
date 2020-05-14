@@ -31,4 +31,10 @@ accountModel.getUser = function(query, next){
 
 }
 
+accountModel.updateUser = function(query, update, next){
+  accountModel.updateOne(query, update, function(err, result) {
+      next(err, result);
+  });
+};
+
 module.exports = mongoose.model('Account', accountSchema);

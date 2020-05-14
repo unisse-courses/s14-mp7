@@ -35,8 +35,4 @@ const loginValidation = [
   body('password').not().isEmpty().withMessage("Password is required.")
 ];
 
-const editValidation = [
-  body('username').not().isEmpty().withMessage("Username is required.")
-];
-
-module.exports = { signupValidation, loginValidation,editValidation};
+module.exports = { signupValidation, loginValidation };

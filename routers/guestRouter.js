@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const accountController = require('../controllers/accountController');
 const reservationController = require('../controllers/reservationController');
-const { signupValidation, loginValidation,editValidation } = require('../validators.js');
+const { signupValidation, loginValidation} = require('../validators.js');
 const { isLoggedOut, isLoggedIn } = require('../middlewares/checkAuth');
 
 
@@ -32,9 +32,8 @@ router.get('/profile', isLoggedIn, reservationController.getStatus);
 // Profile POST
 router.post('/cancel', isLoggedIn, reservationController.cancelReservation);
 
-
 // Edit Post
-router.post('/edit', isLoggedIn,editValidation,accountController.editUser );
+router.post('/edit', isLoggedIn, accountController.editUser );
 
 
 module.exports = router;

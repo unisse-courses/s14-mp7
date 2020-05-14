@@ -13,9 +13,9 @@
                     <br><br>
                   <button type="submit" class="btn loginNav" onclick="showEdit()" >Edit Username</button>
                 </div>
-                {{> messages}}
+                
                 <div class="customCol" id= "EditProfile">
-                  <form method="POST" id="edit">
+                        <p id="warning" class="warningText"></p>
                         <div class="form-row">
                             <label for="username">Username</label>
                             <div class="input-group form-group">
@@ -24,9 +24,9 @@
                         </div>
                         <div style="float: right;">
                         <input type="button" class="btn btn-light cancel_btn" value="Cancel" onclick="showEdit()">
-                        <button type="submit" class="btn loginNav" aria-disabled="true" id=editUser>Save</button>
+                        <button type="submit" class="btn loginNav" aria-disabled="true" id="editUser">Save</button>
                       </div>
-                  </form>
+             
                 </div>
         </div>
     <br>
@@ -139,4 +139,43 @@ function showEdit() {
         x.style.display ="none";
     }
 }
+
+function checkField(field, val) {
+    var valid = val;
+
+    if(field.val() == '') {
+        valid = false;
+        $("#warning").text("Fill-in missing information.");
+    } else {
+        $("#warning").text("");
+    }
+
+    return valid;
+}
+
+
+$("#editUser").on('click', function () {
+    var valid = true;
+    valid = checkField($("#username"), valid);
+    var username =  $("#username").val();
+    if (valid == true){
+        $.post('/edit', {username : username}, function (result){
+            $("#warning").text("");
+            if (result.success == true) {
+                /*
+                var form=document.getElementById("EditProfile");
+                form.style.display ="none" */
+                showEdit();
+                $.get('/edit', function (){});
+               // window.location.replace(result.url);
+            } else if (result.success == false){
+                var message = result.message;
+                $("#warning").text(message);
+            }
+
+        });
+    }
+
+    return true;
+});
 </script>

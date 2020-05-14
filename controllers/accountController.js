@@ -88,7 +88,6 @@ exports.loginUser = (req, res) => {
               req.session.username = Account.username;
               req.session.imagePath = Account.imagePath;
               req.session.isAdmin = Account.isAdmin;
-
               console.log(req.session);
 
               res.redirect('/profile');
@@ -128,17 +127,46 @@ exports.logoutUser = (req, res) => {
 
 exports.editUser = (req, res) => {
 
-      const errors = validationResult(req);
+      var result;
+      var username = req.body.username;
+      console.log("Username is " + username);
+        accountModel.getUser({username: username}, (err, user) => {
+          if (user) {
 
-      if (errors.isEmpty()) {
-
-        accountModel.getUser({username: req.body.username}, (err, result) => {
-          if (result) {
-            console.log(result);
+            console.log("ERROR. username is " + req.body.username);
+            console.log("user is " + user);
             // Match found
-            req.flash('error_msg', 'Username is already taken.');
-            res.redirect('/profile');
+            result = { success: false, message: "Username already taken. Please try again."}
+           // res.send(result);
+        
+          } else if (!(user)) {
+             
+              
+              var query = {
+                _id: req.session.Account
+              }
+              var update = {
+                $set: { username: username }
+              };
+              
+              
+              accountModel.updateUser(query, update, (err, user) => {
+                if (err) {
+                  result = { success: false, message: "Could not edit username. Please try again."}
+                 // res.send(result);
+                
+                } else {
+                  console.log("SUCCESS");
+                  req.session.username = username;
+                  console.log("Session username " + req.session.username);
+                  result = { success: true, message: "Successfully edited username!", url:'/profile'}
+                  
+                  
+                }
+              }); 
+  
           }
+          res.send(result);
         });
-      }
+
 };
