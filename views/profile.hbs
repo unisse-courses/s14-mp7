@@ -13,9 +13,10 @@
                     <br><br>
                   <button type="submit" class="btn loginNav" onclick="showEdit()" >Edit Username</button>
                 </div>
-                
-                <div class="customCol" id= "EditProfile">
-                        <p id="warning" class="warningText"></p>
+               
+                <div class="customCol" >
+                    <p id="warning" class="warningText"></p>
+                   <div id= "EditProfile">   
                         <div class="form-row">
                             <label for="username">Username</label>
                             <div class="input-group form-group">
@@ -24,10 +25,11 @@
                         </div>
                         <div style="float: right;">
                         <input type="button" class="btn btn-light cancel_btn" value="Cancel" onclick="showEdit()">
-                        <button type="submit" class="btn loginNav" aria-disabled="true" id="editUser">Save</button>
+                        <button type="submit" class="btn loginNav" aria-disabled="true" id="editUser" onclick="showEdit()">Save</button>
                       </div>
              
-                </div>
+                    </div>
+                </div> 
         </div>
     <br>
     <br>
@@ -165,8 +167,7 @@ $("#editUser").on('click', function () {
                 /*
                 var form=document.getElementById("EditProfile");
                 form.style.display ="none" */
-                showEdit();
-            
+
                // window.location.replace(result.url);
             } else if (result.success == false){
                 var message = result.message;
