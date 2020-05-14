@@ -17,7 +17,7 @@ Click [Villa La Isla](https://villalaisla.herokuapp.com/) to see the deployed we
 ## Local Setup
 1. Navigate to the directory: `cd s14-mp7`
 2. Install the dependencies: `npm install`
-3. Run the server using the script defined (using nodemon): `heroku local web`
+3. Run the server using the script defined (using nodemon): `npm run debug` or `heroku local web`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
     * Expected screen should home page of Villa La Isla
     * All pages can be accessed through the navigation bar except from the page used to reserve a villa which can be accessed when 'Reserve A Villa' button is clicked in any of the village pages (Siargao, Toscana, Mykonos).
